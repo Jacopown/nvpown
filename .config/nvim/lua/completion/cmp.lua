@@ -116,8 +116,15 @@ cmp.setup({
     },
 
   sources = {
+    { name = 'path' },
+    { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'nvim_lsp_signature_help' },
+    { name = 'emoji' },
+    { name = 'latex_symbols',
+      option = {
+        strategy = 2,},},
   },
 
   view = {

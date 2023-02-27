@@ -48,6 +48,11 @@ return packer.startup(function(use)
     commit = '93e58e100f37ef4fb0f897deeed20599dae9d128' }
   use { 'neovim/nvim-lspconfig', commit = '91998cef4b1ae3a624901d0f9c894409db24e760' } -- Configurations for Nvim LSP
   use { 'hrsh7th/cmp-nvim-lsp', commit = '0e6b2ed705ddcff9738ec4ea838141654f12eeef' }-- cmp extension for lsp support 
+  use { 'hrsh7th/cmp-path', commit = '91ff86cd9c29299a64f968ebb45846c485725f23' }
+  use { 'hrsh7th/cmp-nvim-lsp-signature-help', commit = '3d8912ebeb56e5ae08ef0906e3a54de1c66b92f1' }
+  use { 'hrsh7th/cmp-emoji', commit = '19075c36d5820253d32e2478b6aaf3734aeaafa0' }
+  use { 'kdheepak/cmp-latex-symbols', commit = '165fb66afdbd016eaa1570e41672c4c557b57124' }
+  use { 'hrsh7th/cmp-nvim-lua', commit = 'f3491638d123cfd2c8048aefaf66d246ff250ca6' }
   use { 'hrsh7th/nvim-cmp', commit = 'ba7a53478d0726683d1597ad1e814695033dcb4b' } -- Completion plugin
   use { 'L3MON4D3/LuaSnip', commit = 'd33cf7de14eea209b8ed4a7edaed72f0b8cedb30' } --snippets
   use { 'saadparwaiz1/cmp_luasnip', --snippets source for cmp using LuaSnip 
