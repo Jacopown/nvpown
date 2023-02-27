@@ -1,20 +1,29 @@
-require 'settings'
-require 'keymaps'
-require 'plugins'
-require 'autocommands'
-require 'colorscheme'
-require 'plugins.nvim-tree'
-require 'plugins.bufferline'
-require 'plugins.lualine'
-require 'plugins.treesitter'
-require 'plugins.autopairs'
-require 'plugins.comment'
-require 'plugins.indentline'
-require 'plugins.telescope'
-require 'plugins.toggleterm'
-require 'plugins.gitsigns'
-require 'plugins.colorizer'
-require 'plugins.project'
-require 'plugins.cmp'
-require 'lsp'
-require 'plugins.illuminate'
+local settings_ok, _ = pcall(require, "settings")
+if not settings_ok then
+	vim.notify("There was a problem while requiring settings.lua")
+end
+
+local keymaps_ok, _ = pcall(require, "keymaps")
+if not keymaps_ok then
+	vim.notify("There was a problem while requiring keymaps.lua")
+end
+
+local plugins_ok, _ = pcall(require, "plugins")
+if not plugins_ok then
+	vim.notify("There was a problem while requiring plugins.lua")
+end
+
+local colorscheme_ok, _ = pcall(require, "colorscheme")
+if not colorscheme_ok then
+	vim.notify("There was a problem while requiring colorscheme.lua")
+end
+
+local plugins_conf_ok, _ = pcall(require, "plugins-configs")
+if not plugins_conf_ok then
+	vim.notify("There was a problem while requiring plugins config folder")
+end
+
+local cmp_folder_ok, _ = pcall(require, "completion")
+if not cmp_folder_ok then
+	vim.notify("There was a problem while requiring cmp folder")
+end

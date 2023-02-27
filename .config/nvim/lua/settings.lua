@@ -45,4 +45,3 @@ vim.opt.fillchars.eob=" "
 vim.opt.shortmess:append "c"
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
-vim.cmd([[let g:python3_host_prog = "/opt/homebrew/Caskroom/miniconda/base/envs/nvim/bin/python"]])
