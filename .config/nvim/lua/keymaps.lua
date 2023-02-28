@@ -35,3 +35,14 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 -- Press jk fast to enter
 keymap("i", "kj", "<ESC>", opts)
 keymap("i", "jk", "<ESC>", opts)
+
+-----------------
+-- VISUAL MODE --
+-----------------
+
+-- Stay in indent mode
+keymap("v", "<", "<gv", opts)
+keymap("v", ">", ">gv", opts)
+
+-- Better paste
+keymap("v", "p", '"_dP', opts)
