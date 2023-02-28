@@ -19,10 +19,22 @@ mason_lspconfig.setup {
     ensure_installed = servers,
 }
 
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+lsputils.setup()
+
+for _, server in ipairs(servers) do
+
+	local opts = {
     on_attach = lsputils.on_attach,
     capabilities = lsputils.capabilities,
-  }
+	}
+
+	if server == "lua_ls" then
+    local lua_ls_opts_ok, lua_ls_opts = pcall(require, "completion.settings.lua_ls")
+    if not lua_ls_opts_ok then
+      vim.notify("There was a problem while requiring lua_ls options")
+    end
+		opts = vim.tbl_deep_extend("force", lua_ls_opts, opts)
+	end
+
+	lspconfig[server].setup(opts)
 end
