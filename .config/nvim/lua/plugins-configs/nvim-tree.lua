@@ -6,10 +6,11 @@ end
 nvim_tree.setup({
 	update_focused_file = {
 		enable = true,
-		update_cwd = true,
+		update_root = true,
 	},
 	view = {
 		side = "right",
+    width = 40,
 		mappings = {
 			list = {
 				{ key = "h", action = "edit", action_cb = edit_or_open },
