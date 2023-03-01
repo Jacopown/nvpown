@@ -41,11 +41,15 @@ return packer.startup(function(use)
   use { 'nvim-tree/nvim-web-devicons', commit = '4709a504d2cd2680fb511675e64ef2790d491d36' }  -- Icons
 
   use { 'windwp/nvim-autopairs', commit = '6a5faeabdbcc86cfbf1561ae430a451a72126e81' }
+  use { 'RRethy/vim-illuminate', commit = '49062ab1dd8fec91833a69f0a1344223dd59d643' }
 
+-- Mason related plugins
   use { 'williamboman/mason.nvim', commit = '5b9fd3822d686092c7ee08adfcbd2c764def22c5' } -- LSP Installer
   use { 'williamboman/mason-lspconfig.nvim', -- Filling the gap between lspconfig and mason
     requires = { 'williamboman/mason.nvim' },
     commit = '93e58e100f37ef4fb0f897deeed20599dae9d128' }
+
+-- LSP/Completion plugins
   use { 'neovim/nvim-lspconfig', commit = '91998cef4b1ae3a624901d0f9c894409db24e760' } -- Configurations for Nvim LSP
   use { 'hrsh7th/cmp-nvim-lsp', commit = '0e6b2ed705ddcff9738ec4ea838141654f12eeef' }-- cmp extension for lsp support 
   use { 'hrsh7th/cmp-path', commit = '91ff86cd9c29299a64f968ebb45846c485725f23' }
@@ -54,6 +58,8 @@ return packer.startup(function(use)
   use { 'kdheepak/cmp-latex-symbols', commit = '165fb66afdbd016eaa1570e41672c4c557b57124' }
   use { 'hrsh7th/cmp-nvim-lua', commit = 'f3491638d123cfd2c8048aefaf66d246ff250ca6' }
   use { 'hrsh7th/nvim-cmp', commit = 'ba7a53478d0726683d1597ad1e814695033dcb4b' } -- Completion plugin
+
+-- Snippets related plugins   
   use { 'L3MON4D3/LuaSnip', commit = 'd33cf7de14eea209b8ed4a7edaed72f0b8cedb30' } --snippets
   use { 'saadparwaiz1/cmp_luasnip', --snippets source for cmp using LuaSnip 
     requiers = { 'L3MON4D3/LuaSnip' },
