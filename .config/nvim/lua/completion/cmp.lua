@@ -133,6 +133,15 @@ cmp.setup({
       selection_order = 'near_cursor' }
   },
 
+  window = {
+    documentation = {
+      border = "rounded",
+    },
+    completion = {
+      border = "rounded",
+    },
+  },
+
   experimental = {
     ghost_text = true,
   },
