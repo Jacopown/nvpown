@@ -11,7 +11,7 @@ end
 autopairs.setup({
   check_ts = true,
   fast_wrap = {
-      map = '<leader>p',
+      map = '<A-p>',
       chars = { '{', '[', '(', '"', "'" },
       pattern = [=[[%'%"%>%]%)%}%,]]=],
       end_key = '$',
