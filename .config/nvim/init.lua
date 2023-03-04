@@ -8,6 +8,11 @@ if not keymaps_ok then
 	vim.notify("There was a problem while requiring keymaps.lua")
 end
 
+local autocommands_ok, _ = pcall(require, "autocommands")
+if not autocommands_ok then
+	vim.notify("There was a problem while requiring autocommands.lua")
+end
+
 local plugins_ok, _ = pcall(require, "plugins")
 if not plugins_ok then
 	vim.notify("There was a problem while requiring plugins.lua")
