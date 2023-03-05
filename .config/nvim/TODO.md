@@ -1,12 +1,13 @@
-- [ ] Add diagnostocs support to nvim-tree
+- [x] Add diagnostocs support to nvim-tree
 - [ ] Check nvim-tree default keybinds and enemtually disable unused ones
 - [ ] Write a quick guide for nvim build from source 
 - [ ] Check nvim options file 
-- [ ] Solve treesitter plugin file bug
+- [x] Solve treesitter plugin file bug
 - [ ] patch nerd font for vscode devicons 
 - [ ] create markdown preview plugin
 - [ ] whichkey
-- [ ] test mason.nvim
+- [x] test mason.nvim
 - [ ] test lsp zero
 - [ ] test neo-tree
 - [ ] evaluate adding Buffer source to cmp
+- [ ] move to on_attach method on nvim-tree
