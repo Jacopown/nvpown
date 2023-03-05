@@ -6,7 +6,7 @@ end
 colorscheme.colorscheme({
   -- Underline style used for spelling
   -- Options: 'none', 'underline', 'undercurl'
-  underline_option = 'underline',
+  underline_option = 'none',
   -- Italics for certain keywords such as constructors, functions,
   -- labels and namespaces
   italic = true,

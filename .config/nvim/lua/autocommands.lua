@@ -1,3 +1,4 @@
+-- Closing nvim-tree when it's the last opened buffer
 vim.api.nvim_create_autocmd("BufEnter", {
   nested = true,
   callback = function()
