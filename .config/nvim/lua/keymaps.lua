@@ -25,6 +25,11 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+-- Navigate buffers
+keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-q>", ":Bdelete<CR>", opts)
+
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
@@ -39,6 +44,11 @@ keymap("i", "jk", "<ESC>", opts)
 -----------------
 -- VISUAL MODE --
 -----------------
+
+-- Move text up and down
+keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+
 
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
