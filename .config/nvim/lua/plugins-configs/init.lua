@@ -12,3 +12,8 @@ local autopairs_conf_ok, _ = pcall(require, "plugins-configs.autopairs")
 if not autopairs_conf_ok then
 	vim.notify("There was a problem while requiring autopairs configs")
 end
+
+local comment_conf_ok, _ = pcall(require, "plugins-configs.comment")
+if not comment_conf_ok then
+	vim.notify("There was a problem while requiring comment configs")
+end

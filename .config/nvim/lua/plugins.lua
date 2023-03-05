@@ -40,8 +40,10 @@ return packer.startup(function(use)
   use { 'nvim-lua/plenary.nvim', commit = '253d34830709d690f013daf2853a9d21ad7accab' } -- Requirement for Telescope
   use { 'nvim-tree/nvim-web-devicons', commit = '4709a504d2cd2680fb511675e64ef2790d491d36' }  -- Icons
 
+-- Editing support plugins
   use { 'windwp/nvim-autopairs', commit = '6a5faeabdbcc86cfbf1561ae430a451a72126e81' }
   use { 'RRethy/vim-illuminate', commit = '49062ab1dd8fec91833a69f0a1344223dd59d643' }
+  use { 'numToStr/Comment.nvim', commit = '6821b3ae27a57f1f3cf8ed030e4a55d70d0c4e43' }
 
 -- Mason related plugins
   use { 'williamboman/mason.nvim', commit = '5b9fd3822d686092c7ee08adfcbd2c764def22c5' } -- LSP Installer
@@ -68,17 +70,21 @@ return packer.startup(function(use)
 
   use { "kyazdani42/nvim-tree.lua", -- File explorer
     requires = { 'nvim-tree/nvim-web-devicons' },
-    commit = '9c97e6449b0b0269bd44e1fd4857184dfa57bb4c' } 
+    commit = '9c97e6449b0b0269bd44e1fd4857184dfa57bb4c' }
 
+-- Treesitter related plugins
   use { 'nvim-treesitter/nvim-treesitter',
     run = function()
       local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
       ts_update()
     end,
     commit = 'c9d7f9c9207b6fe53f58e0a3ef2e5227c37d9004' }
+  use { 'HiPhish/nvim-ts-rainbow2',
+    requires = { 'nvim-treesitter/nvim-treesitter' },
+    commit = '293e12e90f0928845582b9a3db7258eaa8e92a65' }
 
   -- Colorschemes
-  use { 'andersevenrud/nordic.nvim', 
+  use { 'andersevenrud/nordic.nvim',
     requires = { 'nvim-treesitter/nvim-treesitter' },
     commit = 'cd552784eeeae61644fec60f6cc52c267dbddc73' }
   -- Automatically set up your configuration after cloning packer.nvim
