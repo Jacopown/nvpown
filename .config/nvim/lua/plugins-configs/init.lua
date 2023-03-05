@@ -17,3 +17,8 @@ local comment_conf_ok, _ = pcall(require, "plugins-configs.comment")
 if not comment_conf_ok then
 	vim.notify("There was a problem while requiring comment configs")
 end
+
+local bufferline_conf_ok, _ = pcall(require, "plugins-configs.bufferline")
+if not bufferline_conf_ok then
+	vim.notify("There was a problem while requiring bufferline configs")
+end

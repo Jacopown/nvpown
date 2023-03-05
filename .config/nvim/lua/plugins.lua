@@ -39,6 +39,15 @@ return packer.startup(function(use)
   use { 'wbthomason/packer.nvim', commit = '1d0cf98a561f7fd654c970c49f917d74fafe1530' } -- Have packer manage itself
   use { 'nvim-lua/plenary.nvim', commit = '253d34830709d690f013daf2853a9d21ad7accab' } -- Requirement for Telescope
   use { 'nvim-tree/nvim-web-devicons', commit = '4709a504d2cd2680fb511675e64ef2790d491d36' }  -- Icons
+  use { 'famiu/bufdelete.nvim', commit = '8933abc09df6c381d47dc271b1ee5d266541448e' }
+
+-- GUI 
+  use { 'kyazdani42/nvim-tree.lua', -- File explorer
+    requires = { 'nvim-tree/nvim-web-devicons' },
+    commit = '9c97e6449b0b0269bd44e1fd4857184dfa57bb4c' }
+  use { 'akinsho/bufferline.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', 'famiu/bufdelete.nvim' },
+    commit = '3677aceb9a72630b0613e56516c8f7151b86f95c'}
 
 -- Editing support plugins
   use { 'windwp/nvim-autopairs', commit = '6a5faeabdbcc86cfbf1561ae430a451a72126e81' }
@@ -66,11 +75,7 @@ return packer.startup(function(use)
   use { 'saadparwaiz1/cmp_luasnip', --snippets source for cmp using LuaSnip 
     requiers = { 'L3MON4D3/LuaSnip' },
     commit = '18095520391186d634a0045dacaa346291096566' }
-  use { "rafamadriz/friendly-snippets", commit = '6fa50a94ba5378bb73013a6e163376d8e69bd8a5' }
-
-  use { "kyazdani42/nvim-tree.lua", -- File explorer
-    requires = { 'nvim-tree/nvim-web-devicons' },
-    commit = '9c97e6449b0b0269bd44e1fd4857184dfa57bb4c' }
+  use { 'rafamadriz/friendly-snippets', commit = '6fa50a94ba5378bb73013a6e163376d8e69bd8a5' }
 
 -- Treesitter related plugins
   use { 'nvim-treesitter/nvim-treesitter',
