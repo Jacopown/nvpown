@@ -41,6 +41,9 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 keymap("i", "kj", "<ESC>", opts)
 keymap("i", "jk", "<ESC>", opts)
 
+-- Change copilot accept key
+keymap('i', '<M-/>', 'copilot#Accept("<CR>")', {expr=true, silent=true})
+
 -----------------
 -- VISUAL MODE --
 -----------------

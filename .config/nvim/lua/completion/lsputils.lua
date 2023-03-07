@@ -33,7 +33,7 @@ M.setup = function ()
 		vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 	end
   local config = {
-    update_in_insert = true,
+    update_in_insert = false,
   }
   vim.diagnostic.config(config)
 end
