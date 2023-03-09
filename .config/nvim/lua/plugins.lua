@@ -89,6 +89,14 @@ return packer.startup(function(use)
     requires = { 'nvim-treesitter/nvim-treesitter' },
     commit = '293e12e90f0928845582b9a3db7258eaa8e92a65' }
 
+-- Telescope
+  use { 'nvim-telescope/telescope.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    commit = 'a3f17d3baf70df58b9d3544ea30abe52a7a832c2' }
+  use {'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+    commit = '580b6c48651cabb63455e97d7e131ed557b8c7e2' }
+
   -- Colorschemes
   use { 'andersevenrud/nordic.nvim',
     requires = { 'nvim-treesitter/nvim-treesitter' },

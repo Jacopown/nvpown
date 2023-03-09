@@ -22,3 +22,8 @@ local bufferline_conf_ok, _ = pcall(require, "plugins-configs.bufferline")
 if not bufferline_conf_ok then
 	vim.notify("There was a problem while requiring bufferline configs")
 end
+
+local telescope_conf_ok, _ = pcall(require, "plugins-configs.telescope")
+if not telescope_conf_ok then
+	vim.notify("There was a problem while requiring telescope configs")
+end
