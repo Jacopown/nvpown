@@ -13,7 +13,7 @@ if not lsputils_ok then
 	vim.notify("There was a problem while requiring lsputils")
 end
 
-local servers = { 'lua_ls', 'vimls' }
+local servers = { 'lua_ls', 'vimls', 'html', 'cssls', 'cssmodules_ls', 'jsonls', 'tsserver' }
 
 mason_lspconfig.setup {
     ensure_installed = servers,

@@ -17,5 +17,8 @@ treesitter.setup({
   },
   rainbow = {
     enable = true,
+  },
+  autotag = {
+      enable = true,
   }
 })

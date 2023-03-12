@@ -48,9 +48,11 @@ return packer.startup(function(use)
   use { 'akinsho/bufferline.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', 'famiu/bufdelete.nvim' },
     commit = '3677aceb9a72630b0613e56516c8f7151b86f95c'}
+  use { 'goolord/alpha-nvim', commit = '4e1c4dedf5983e84b3ed305228b2235c56c7023c' }
 
 -- Editing support plugins
   use { 'windwp/nvim-autopairs', commit = '6a5faeabdbcc86cfbf1561ae430a451a72126e81' }
+  use { 'windwp/nvim-ts-autotag', commit = 'fdefe46c6807441460f11f11a167a2baf8e4534b' }
   use { 'RRethy/vim-illuminate', commit = '49062ab1dd8fec91833a69f0a1344223dd59d643' }
   use { 'numToStr/Comment.nvim', commit = '6821b3ae27a57f1f3cf8ed030e4a55d70d0c4e43' }
   use { 'github/copilot.vim', commit = '9e869d29e62e36b7eb6fb238a4ca6a6237e7d78b' }
