@@ -1,5 +1,5 @@
 - [x] Add diagnostocs support to nvim-tree
-- [ ] Check nvim-tree default keybinds and enemtually disable unused ones
+- [ ] Check nvim-tree default keybinds and eventually disable unused ones
 - [ ] Write a quick guide for nvim build from source 
 - [ ] Check nvim options file 
 - [x] Solve treesitter plugin file bug
@@ -11,3 +11,4 @@
 - [ ] test neo-tree
 - [ ] evaluate adding Buffer source to cmp
 - [ ] move to on_attach method on nvim-tree
+- [ ] review alpha settings
