@@ -12,3 +12,4 @@
 - [ ] evaluate adding Buffer source to cmp
 - [ ] move to on_attach method on nvim-tree
 - [ ] review alpha settings
+- [ ] make telescope less useless
