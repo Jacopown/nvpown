@@ -27,3 +27,8 @@ local telescope_conf_ok, _ = pcall(require, "plugins-configs.telescope")
 if not telescope_conf_ok then
 	vim.notify("There was a problem while requiring telescope configs")
 end
+
+local alpha_conf_ok, _ = pcall(require, "plugins-configs.alpha")
+if not alpha_conf_ok then
+	vim.notify("There was a problem while requiring alpha configs")
+end
