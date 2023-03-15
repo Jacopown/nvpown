@@ -13,3 +13,6 @@
 - [ ] move to on_attach method on nvim-tree
 - [ ] review alpha settings
 - [ ] make telescope less useless
+- [ ] change icons where needed
+- [ ] create an icon file 
+- [ ] create a personalized neovim theme 
