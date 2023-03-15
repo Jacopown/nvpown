@@ -49,6 +49,8 @@ return packer.startup(function(use)
     requires = { 'nvim-tree/nvim-web-devicons', 'famiu/bufdelete.nvim' },
     commit = '3677aceb9a72630b0613e56516c8f7151b86f95c'}
   use { 'goolord/alpha-nvim', commit = '4e1c4dedf5983e84b3ed305228b2235c56c7023c' }
+  use { 'nvim-lualine/lualine.nvim', commit = 'e99d733e0213ceb8f548ae6551b04ae32e590c80' }
+  use { 'arkav/lualine-lsp-progress', commit = '56842d097245a08d77912edf5f2a69ba29f275d7' }
 
 -- Editing support plugins
   use { 'windwp/nvim-autopairs', commit = '6a5faeabdbcc86cfbf1561ae430a451a72126e81' }

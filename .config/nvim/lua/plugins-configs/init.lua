@@ -32,3 +32,8 @@ local alpha_conf_ok, _ = pcall(require, "plugins-configs.alpha")
 if not alpha_conf_ok then
 	vim.notify("There was a problem while requiring alpha configs")
 end
+
+local lualine_conf_ok, _ = pcall(require, "plugins-configs.lualine")
+if not lualine_conf_ok then
+  vim.notify("There was a problem while requiring lualine configs")
+end
