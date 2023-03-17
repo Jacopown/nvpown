@@ -42,3 +42,8 @@ local gitsigns_conf_ok, _ = pcall(require, "plugins-configs.gitsigns")
 if not gitsigns_conf_ok then
   vim.notify("There was a problem while requiring gitsigns configs")
 end
+
+local gitblame_conf_ok, _ = pcall(require, "plugins-configs.git-blame")
+if not gitblame_conf_ok then
+  vim.notify("There was a problem while requiring git-blame configs")
+end
