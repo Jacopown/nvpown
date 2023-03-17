@@ -37,3 +37,8 @@ local lualine_conf_ok, _ = pcall(require, "plugins-configs.lualine")
 if not lualine_conf_ok then
   vim.notify("There was a problem while requiring lualine configs")
 end
+
+local gitsigns_conf_ok, _ = pcall(require, "plugins-configs.gitsigns")
+if not gitsigns_conf_ok then
+  vim.notify("There was a problem while requiring gitsigns configs")
+end

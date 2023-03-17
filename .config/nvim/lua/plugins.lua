@@ -101,6 +101,8 @@ return packer.startup(function(use)
     run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
     commit = '580b6c48651cabb63455e97d7e131ed557b8c7e2' }
 
+  use { 'lewis6991/gitsigns.nvim', commit = 'b1f9cf7c5c5639c006c937fc1819e09f358210fc' }
+
   -- Colorschemes
   use { 'andersevenrud/nordic.nvim',
     requires = { 'nvim-treesitter/nvim-treesitter' },
