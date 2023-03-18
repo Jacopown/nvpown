@@ -48,7 +48,7 @@ if not gitblame_conf_ok then
   vim.notify("There was a problem while requiring git-blame configs")
 end
 
-local indentline_conf_ok, _ = pcall(require, "plugins-configs.indentline")
-if not indentline_conf_ok then
-  vim.notify("There was a problem while requiring indentline configs")
+local toggleterm_conf_ok, _ = pcall(require, "plugins-configs.toggleterm")
+if not toggleterm_conf_ok then
+  vim.notify("There was a problem while requiring toggleterm configs")
 end

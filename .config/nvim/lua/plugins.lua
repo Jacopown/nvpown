@@ -51,6 +51,7 @@ return packer.startup(function(use)
   use { 'goolord/alpha-nvim', commit = '4e1c4dedf5983e84b3ed305228b2235c56c7023c' }
   use { 'nvim-lualine/lualine.nvim', commit = 'e99d733e0213ceb8f548ae6551b04ae32e590c80' }
   use { 'arkav/lualine-lsp-progress', commit = '56842d097245a08d77912edf5f2a69ba29f275d7' }
+  use { 'akinsho/toggleterm.nvim', commit = '9a595ba699837c4333c4296634feed320f084df2' }
 
 -- Editing support plugins
   use { 'windwp/nvim-autopairs', commit = '6a5faeabdbcc86cfbf1561ae430a451a72126e81' }
@@ -101,10 +102,11 @@ return packer.startup(function(use)
     run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
     commit = '580b6c48651cabb63455e97d7e131ed557b8c7e2' }
 
+-- Git
   use { 'lewis6991/gitsigns.nvim', commit = 'b1f9cf7c5c5639c006c937fc1819e09f358210fc' }
   use { 'f-person/git-blame.nvim', commit = '1ad47c6454a5a53d3f4ffdd4022e84f4a6e376cb' }
 
-  -- Colorschemes
+-- Colorschemes
   use { 'andersevenrud/nordic.nvim',
     requires = { 'nvim-treesitter/nvim-treesitter' },
     commit = 'cd552784eeeae61644fec60f6cc52c267dbddc73' }
