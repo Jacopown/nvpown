@@ -16,3 +16,4 @@
 - [ ] change icons where needed
 - [ ] create an icon file 
 - [ ] create a personalized neovim theme 
+- [ ] make ccc.neovim higlights work on startup 
