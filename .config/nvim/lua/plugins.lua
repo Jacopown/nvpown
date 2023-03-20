@@ -59,6 +59,7 @@ return packer.startup(function(use)
   use { 'RRethy/vim-illuminate', commit = '49062ab1dd8fec91833a69f0a1344223dd59d643' }
   use { 'numToStr/Comment.nvim', commit = '6821b3ae27a57f1f3cf8ed030e4a55d70d0c4e43' }
   use { 'github/copilot.vim', commit = '9e869d29e62e36b7eb6fb238a4ca6a6237e7d78b' }
+  use { 'uga-rosa/ccc.nvim', commit = '9f57ffc78844d18d0991986fbde4dfdf5e839fdd' }
 
 -- Mason related plugins
   use { 'williamboman/mason.nvim', commit = '5b9fd3822d686092c7ee08adfcbd2c764def22c5' } -- LSP Installer
