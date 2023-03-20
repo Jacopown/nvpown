@@ -52,3 +52,8 @@ local toggleterm_conf_ok, _ = pcall(require, "plugins-configs.toggleterm")
 if not toggleterm_conf_ok then
   vim.notify("There was a problem while requiring toggleterm configs")
 end
+
+local null_ls_conf_ok, _ = pcall(require, "plugins-configs.null-ls")
+if not null_ls_conf_ok then
+  vim.notify("There was a problem while requiring null-ls configs")
+end

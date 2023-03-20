@@ -22,6 +22,30 @@ local function lsp_keymaps(bufnr)
 	vim.keymap.set("n", "<leader>lq", vim.diagnostic.setloclist, opts)
 end
 
+
+local lsp_formatting = function(client, bufnr)
+  if client.supports_method("textDocument/formatting") then
+    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = augroup,
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.format({
+          filter = function(client)
+            return client.name == "null-ls"
+          end,
+          bufnr = bufnr,
+        })
+      end,
+    })
+  end
+end
+
+-- add to your shared on_attach callback
+local on_attach = function(client, bufnr)
+end
+
+
 M.setup = function ()
 	local signs = {
 		{ name = "DiagnosticSignError", text = "" },
@@ -41,6 +65,7 @@ end
 M.capabilities = cmp_nvim_lsp.default_capabilities()
 
 M.on_attach = function (client, bufnr)
+  lsp_formatting(client, bufnr)
   lsp_keymaps(bufnr)
 end
 

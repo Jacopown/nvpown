@@ -84,6 +84,10 @@ return packer.startup(function(use)
     commit = '18095520391186d634a0045dacaa346291096566' }
   use { 'rafamadriz/friendly-snippets', commit = '6fa50a94ba5378bb73013a6e163376d8e69bd8a5' }
 
+-- null - ls
+  use { 'jose-elias-alvarez/null-ls.nvim', commit = '13dd1fc13063681ca7e039436c88f6eca7e3e937' }
+  use { 'jay-babu/mason-null-ls.nvim', commit = '4070ec7c543b67df16143ee206e436d24bb9c01b' }
+
 -- Treesitter related plugins
   use { 'nvim-treesitter/nvim-treesitter',
     run = function()
