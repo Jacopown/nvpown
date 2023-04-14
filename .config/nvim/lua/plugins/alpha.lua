@@ -3,6 +3,7 @@ return {
   pin = true,
   dependencies = {
     'nvim-tree/nvim-web-devicons',
+    -- 'nvim-telescope/telescope.nvim',
   },
   config = function()
     local dashboard = require("alpha.themes.dashboard")
