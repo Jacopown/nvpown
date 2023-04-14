@@ -30,9 +30,6 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<S-q>", ":Bdelete<CR>", opts)
 
--- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-
 -----------------
 -- INSERT MODE --
 -----------------
