@@ -3,8 +3,8 @@ return {
   pin = true,
   dependencies = {
    "nvim-lua/plenary.nvim",
-    "nvim-tree/nvim-web-devicons", 
-    "MunifTanjim/nui.nvim", 
+    "nvim-tree/nvim-web-devicons",
+    "MunifTanjim/nui.nvim",
   },
   keys = {
     { "<leader>e",
@@ -18,7 +18,7 @@ return {
     window = {
       position = "right",
       mappings = {
-        ["l"] = { "toggle_node", },
+        -- ["l"] = { "toggle_node", nowait = false, },-- disable `nowait` if you have existing combos starting with this char that you want to use 
       },
     },
   },

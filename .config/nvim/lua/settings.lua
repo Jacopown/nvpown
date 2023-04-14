@@ -26,7 +26,7 @@ local options = {
 	shiftwidth = 2,                           -- the number of spaces inserted for each indentation
 	tabstop = 2,                              -- insert 2 spaces for a tab
 	number = true,                            -- set numbered lines
-  relativenumber = true,
+	relativenumber = true,
 	laststatus = 3,
 	showcmd = false,
 	ruler = false,
@@ -36,6 +36,11 @@ local options = {
 	scrolloff = 8,                          		-- is one of my fav
 	sidescrolloff = 8,
 	--guifont = "monospace:h17"              		-- the font used in graphical neovim applications
+	-- foldmethod = 'indent',
+	-- nofoldenable = true,
+	-- foldmethod = 'expr',
+	-- foldexpr = 'nvim_treesitter#foldexpr()',
+ --  foldenable = false,
 }
 
 for k, v in pairs(options) do
