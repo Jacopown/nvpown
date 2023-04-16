@@ -4,7 +4,6 @@
 - [ ] create markdown preview plugin
 - [ ] whichkey
 - [ ] review alpha settings
-- [ ] make telescope less useless
 - [ ] change icons where needed
 - [ ] create an icon file 
 - [ ] create a personalized neovim theme 
@@ -12,6 +11,7 @@
 - [ ] change indent line highlight color for curret context
 - [ ] Check neo-tree icons
 - [ ] Solve no closing problem of neo-tree
+- [x] make telescope less useless
 - [x] evaluate adding Buffer source to cmp
 - [x] test neo-tree
 - [x] test lsp zero
