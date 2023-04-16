@@ -1,20 +1,20 @@
-- [x] Add diagnostocs support to nvim-tree
-- [ ] Check nvim-tree default keybinds and eventually disable unused ones
 - [ ] Write a quick guide for nvim build from source 
 - [ ] Check nvim options file 
-- [x] Solve treesitter plugin file bug
 - [ ] patch nerd font for vscode devicons 
 - [ ] create markdown preview plugin
 - [ ] whichkey
-- [x] test mason.nvim
-- [ ] test lsp zero
-- [ ] test neo-tree
-- [ ] evaluate adding Buffer source to cmp
-- [ ] move to on_attach method on nvim-tree
 - [ ] review alpha settings
 - [ ] make telescope less useless
 - [ ] change icons where needed
 - [ ] create an icon file 
 - [ ] create a personalized neovim theme 
-- [ ] make ccc.neovim higlights work on startup 
 - [ ] add null-ls linters and formatters
+- [ ] change indent line highlight color for curret context
+- [ ] Check neo-tree icons
+- [ ] Solve no closing problem of neo-tree
+- [x] evaluate adding Buffer source to cmp
+- [x] test neo-tree
+- [x] test lsp zero
+- [x] make ccc.neovim higlights work on startup 
+- [x] Solve treesitter plugin file bug
+- [x] test mason.nvim
