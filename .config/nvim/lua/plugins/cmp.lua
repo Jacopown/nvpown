@@ -3,6 +3,7 @@ return{
     'hrsh7th/nvim-cmp',
     -- pin = ture,
     dependencies = {
+        'windwp/nvim-autopairs',
         'neovim/nvim-lspconfig',
       { 'hrsh7th/cmp-nvim-lsp', --[[ pin = ture, ]] },
       { 'hrsh7th/cmp-buffer', --[[ pin = true, ]] },
@@ -16,6 +17,11 @@ return{
     config = function ()
       local cmp_ok, cmp = pcall(require, "cmp")
       if not cmp_ok then
+        vim.notify("There was a problem while requiring cmp plugin")
+      end
+
+      local cmp_autopairs_ok, cmp_autopairs = pcall(require, 'nvim-autopairs.completion.cmp')
+      if not cmp_autopairs_ok then
         vim.notify("There was a problem while requiring cmp plugin")
       end
 
@@ -53,6 +59,12 @@ return{
         Operator = "",
         TypeParameter = ""
       }
+
+      cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
+      )
+
       cmp.setup {
         enabled = function()
           -- disable completion in comments
