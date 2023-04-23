@@ -3,35 +3,19 @@ return {
   pin = true,
   dependencies = {
     'windwp/nvim-ts-autotag',
-    'HiPhish/nvim-ts-rainbow2',
+    'JoosepAlviste/nvim-ts-context-commentstring',
     'nvim-treesitter/playground',
   },
-  build = function()
-      require("nvim-treesitter.install").update({ with_sync = true })
-  end,
+  build = ":TSUpdate",
   opts = {
     auto_install = true,
-    ensure_installed = { 'lua', 'vim', 'c', 'query' }, -- one of "all" or a list of languages
-    ignore_install = { 'html' }, -- List of parsers to ignore installing
-    highlight = {
-      enable = true, -- false will disable the whole extension
-      disable = { "" }, -- list of language that will be disabled
-      additional_vim_regex_highlighting = true,
-    },
-    indent = {
-      enable = true,
-      disable = { "" }
-    },
-    context_commentstring = {
-      enable = true,
-      enable_autocmd = false,
-    },
-    rainbow = {
-      enable = true,
-    },
-    autotag = {
-      enable = true,
-    },
+    ensure_installed = { 'lua', 'vim', 'c', 'query', 'html' }, -- one of "all" or a list of languages
+    ignore_install = {  }, -- List of parsers to ignore installing
+    highlight = { enable = true },
+    incremental_selection = { enable = true }, --[[ test if used ]]
+    indent = { enable = true },
+    context_commentstring = { enable = true, enable_autocmd = false },
+    autotag = { enable = true },
   },
   config = function(_, opts)
         require("nvim-treesitter.configs").setup(opts)
