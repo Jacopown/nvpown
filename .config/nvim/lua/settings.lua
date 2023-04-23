@@ -35,12 +35,10 @@ local options = {
 	wrap = false,                           		-- display lines as one long line
 	scrolloff = 8,                          		-- is one of my fav
 	sidescrolloff = 8,
-	--guifont = "monospace:h17"              		-- the font used in graphical neovim applications
-	-- foldmethod = 'indent',
-	-- nofoldenable = true,
-	-- foldmethod = 'expr',
-	-- foldexpr = 'nvim_treesitter#foldexpr()',
- --  foldenable = false,
+  foldcolumn = '1',                           -- '0' is not bad
+  foldlevel = 99,                             -- Using ufo provider need a large value, feel free to decrease the value
+  foldlevelstart = 99,
+  foldenable = true
 }
 
 for k, v in pairs(options) do
