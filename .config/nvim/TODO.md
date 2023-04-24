@@ -11,7 +11,8 @@
 - [ ] change indent line highlight color for curret context
 - [ ] Check neo-tree icons
 - [ ] Solve no closing problem of neo-tree
-- [x] make telescope less useless
+- [ ] remove fold numbers
+- [ ] make telescope less useless
 - [x] evaluate adding Buffer source to cmp
 - [x] test neo-tree
 - [x] test lsp zero
