@@ -2,8 +2,8 @@ return {
   {
     'williamboman/mason.nvim',
     -- pin = ture,
-    build = ':MasonUpdate',  
-    opt = {
+    build = ':MasonUpdate',
+    opts = {
       ui = {
         border = "rounded",
         icons = {
