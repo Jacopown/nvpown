@@ -1,10 +1,10 @@
-return{
+return {
   {
     'hrsh7th/nvim-cmp',
     -- pin = ture,
     dependencies = {
-        'windwp/nvim-autopairs',
-        'neovim/nvim-lspconfig',
+      'windwp/nvim-autopairs',
+      'neovim/nvim-lspconfig',
       { 'hrsh7th/cmp-nvim-lsp', --[[ pin = ture, ]] },
       { 'hrsh7th/cmp-buffer', --[[ pin = true, ]] },
       { 'hrsh7th/cmp-path', --[[ pin = true, ]] },
@@ -14,7 +14,7 @@ return{
       { 'hrsh7th/cmp-nvim-lua', --[[ pin = true, ]] },
       { 'saadparwaiz1/cmp_luasnip', --[[ pin = ture, ]] },
     },
-    config = function ()
+    config = function()
       local cmp_ok, cmp = pcall(require, "cmp")
       if not cmp_ok then
         vim.notify("There was a problem while requiring cmp plugin")
@@ -74,9 +74,13 @@ return{
             return true
           else
             return not context.in_treesitter_capture("comment")
-              and not context.in_syntax_group("Comment")
+                and not context.in_syntax_group("Comment")
           end
         end,
+        preselect = 'item',
+        completion = {
+          completeopt = 'menu,menuone,noinsert'
+        },
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
@@ -103,7 +107,8 @@ return{
         view = {
           entries = {
             name = 'custom',
-            selection_order = 'near_cursor' }
+            selection_order = 'near_cursor'
+          }
         },
         formatting = {
           format = function(entry, vim_item)
