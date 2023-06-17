@@ -24,6 +24,19 @@ return {
         }
       })
 
+      lsp.format_on_save({
+        format_opts = {
+          async = false,
+          timeout_ms = 10000,
+        },
+        servers = {
+          ['lua_ls'] = {'lua'},
+          -- if you have a working setup with null-ls
+          -- you can specify filetypes it can format.
+          -- ['null-ls'] = {'javascript', 'typescript'},
+        }
+      })
+
       require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
       lsp.setup()
