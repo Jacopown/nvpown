@@ -1,3 +1,4 @@
+local icons = require('icons')
 return {
   {
     'hrsh7th/nvim-cmp',
@@ -13,6 +14,7 @@ return {
       { 'kdheepak/cmp-latex-symbols', --[[ pin = true, ]] },
       { 'hrsh7th/cmp-nvim-lua', --[[ pin = true, ]] },
       { 'saadparwaiz1/cmp_luasnip', --[[ pin = ture, ]] },
+      { 'zbirenbaum/copilot-cmp' }
     },
     config = function()
       local cmp_ok, cmp = pcall(require, "cmp")
@@ -31,34 +33,6 @@ return {
       end
 
       local cmp_action = require('lsp-zero').cmp_action()
-
-      local kind_icons = {
-        Text = "",
-        Method = "",
-        Function = "",
-        Constructor = "",
-        Field = "",
-        Variable = "",
-        Class = "ﴯ",
-        Interface = "",
-        Module = "",
-        Property = "ﰠ",
-        Unit = "",
-        Value = "",
-        Enum = "",
-        Keyword = "",
-        Snippet = "",
-        Color = "",
-        File = "",
-        Reference = "",
-        Folder = "",
-        EnumMember = "",
-        Constant = "",
-        Struct = "",
-        Event = "",
-        Operator = "",
-        TypeParameter = ""
-      }
 
       cmp.event:on(
         'confirm_done',
@@ -96,6 +70,7 @@ return {
           ["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
         }),
         sources = {
+          { name = "copilot" },
           { name = 'nvim_lua' },
           { name = 'path' },
           { name = 'emoji' },
@@ -113,9 +88,10 @@ return {
         formatting = {
           format = function(entry, vim_item)
             -- Kind icons
-            vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+            vim_item.kind = string.format('%s %s', icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
             -- Source
             vim_item.menu = ({
+              copilot = "[Copilot]",
               buffer = "[Buffer]",
               nvim_lsp = "[LSP]",
               luasnip = "[LuaSnip]",
