@@ -13,6 +13,7 @@
 - [ ] Solve no closing problem of neo-tree
 - [ ] remove fold numbers
 - [ ] make telescope less useless
+- [ ] try inlay hints
 - [x] evaluate adding Buffer source to cmp
 - [x] test neo-tree
 - [x] test lsp zero
