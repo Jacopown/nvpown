@@ -1,3 +1,5 @@
+local icons = require('icons')
+
 return {
   {
     'VonHeikemen/lsp-zero.nvim',
@@ -10,7 +12,7 @@ return {
       local lsp = require('lsp-zero').preset({})
 
       lsp.on_attach(function(_, bufnr)
-        lsp.default_keymaps({buffer = bufnr})
+        lsp.default_keymaps({ buffer = bufnr })
       end)
 
       lsp.set_server_config({
@@ -30,13 +32,19 @@ return {
           timeout_ms = 10000,
         },
         servers = {
-          ['lua_ls'] = {'lua'},
+          ['lua_ls'] = { 'lua' },
           -- if you have a working setup with null-ls
           -- you can specify filetypes it can format.
           -- ['null-ls'] = {'javascript', 'typescript'},
         }
       })
 
+      lsp.set_sign_icons({
+        error = icons.DiagnosticError,
+        warn = icons.DiagnosticWarn,
+        hint = icons.DiagnosticHint,
+        info = icons.DiagnosticInfo,
+      })
       require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
       lsp.setup()
