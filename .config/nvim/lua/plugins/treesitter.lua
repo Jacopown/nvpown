@@ -9,8 +9,8 @@ return {
   build = ":TSUpdate",
   opts = {
     auto_install = true,
-    ensure_installed = { 'lua', 'vim', 'c', 'query', 'html' }, -- one of "all" or a list of languages
-    ignore_install = {  }, -- List of parsers to ignore installing
+    ensure_installed = { 'lua', 'vim', 'c', 'query', 'html', 'rasi' }, -- one of "all" or a list of languages
+    ignore_install = {},                                               -- List of parsers to ignore installing
     highlight = { enable = true },
     incremental_selection = { enable = true }, --[[ test if used ]]
     indent = { enable = true },
@@ -18,6 +18,6 @@ return {
     autotag = { enable = true },
   },
   config = function(_, opts)
-        require("nvim-treesitter.configs").setup(opts)
+    require("nvim-treesitter.configs").setup(opts)
   end,
 }

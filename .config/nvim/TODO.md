@@ -1,19 +1,19 @@
 - [ ] Write a quick guide for nvim build from source 
 - [ ] Check nvim options file 
-- [ ] patch nerd font for vscode devicons 
 - [ ] create markdown preview plugin
 - [ ] whichkey
 - [ ] review alpha settings
 - [ ] change icons where needed
-- [ ] create an icon file 
 - [ ] create a personalized neovim theme 
 - [ ] add null-ls linters and formatters
 - [ ] change indent line highlight color for curret context
 - [ ] Check neo-tree icons
-- [ ] Solve no closing problem of neo-tree
 - [ ] remove fold numbers
 - [ ] make telescope less useless
 - [ ] try inlay hints
+- [ ] try nvim navic
+- [x] create an icon file 
+- [x] Solve no closing problem of neo-tree
 - [x] evaluate adding Buffer source to cmp
 - [x] test neo-tree
 - [x] test lsp zero
