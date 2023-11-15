@@ -9,8 +9,8 @@ return {
   build = ":TSUpdate",
   opts = {
     auto_install = true,
-    ensure_installed = { 'lua', 'vim', 'c', 'query', 'html', 'rasi' }, -- one of "all" or a list of languages
-    ignore_install = {},                                               -- List of parsers to ignore installing
+    ensure_installed = { 'lua', 'vim' }, -- one of "all" or a list of languages
+    ignore_install = {},                 -- List of parsers to ignore installing
     highlight = { enable = true },
     incremental_selection = { enable = true }, --[[ test if used ]]
     indent = { enable = true },
