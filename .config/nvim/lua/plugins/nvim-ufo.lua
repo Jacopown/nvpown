@@ -22,12 +22,11 @@ return {
     -- }
   },
   keys = {
-      {[[zR]], function() require("ufo").openAllFolds() end, desc = "Open all folds" },
-      {[[zM]], function() require('ufo').closeAllFolds() end, desc = "Open all folds" },
-    },
-  config = function ()
+    { [[zR]], function() require("ufo").openAllFolds() end,  desc = "Open all folds" },
+    { [[zM]], function() require('ufo').closeAllFolds() end, desc = "Close all folds" },
+  },
+  config = function()
     require("ufo").setup()
     vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
   end,
 }
-
