@@ -3,12 +3,13 @@ return {
   'nvim-neo-tree/neo-tree.nvim',
   pin = true,
   dependencies = {
-   "nvim-lua/plenary.nvim",
+    "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
   },
   keys = {
-    { "<leader>e",
+    {
+      "<leader>e",
       function()
         require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
       end,
@@ -20,74 +21,75 @@ return {
     window = {
       position = "right",
       mappings = {
-        -- ["l"] = { "toggle_node", nowait = false, },-- disable `nowait` if you have existing combos starting with this char that you want to use 
+        -- ["l"] = { "toggle_node", nowait = false, },-- disable `nowait` if you have existing combos starting with this char that you want to use
+        ["h"] = { "navigate_up", nowait = false, }
       },
     },
-  default_component_configs = {
-    diagnostics = {
-     symbols = {
-       hint = icons.DiagnosticHint,
-       info = icons.DiagnosticInfo,
-       warn = icons.DiagnosticWarn,
-       error = icons.DiagnosticError,
-     },
-     highlights = {
-       hint = "DiagnosticSignHint",
-       info = "DiagnosticSignInfo",
-       warn = "DiagnosticSignWarn",
-       error = "DiagnosticSignError",
-     },
-    },
-    indent = {
-      indent_size = 2,
-      padding = 1,
-      -- indent guides
-      with_markers = true,
-      indent_marker = "│",
-      last_indent_marker = "└",
-      highlight = "NeoTreeIndentMarker",
-      -- expander config, needed for nesting files
-      with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
-      expander_collapsed = icons.FoldClosed,
-      expander_expanded = icons.FoldOpened,
-      expander_highlight = "NeoTreeExpander",
-    },
-    icon = {
-      folder_closed = icons.FolderClosed,
-      folder_open = icons.FolderOpen,
-      folder_empty = icons.FolderEmpty,
-      -- folder_empty_open = "ﰊ",
-      -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
-      -- then these will never be used.
-      default = icons.DefaultFile,
-      highlight = "NeoTreeFileIcon"
-    },
-    modified = {
-      symbol = icons.FileModified,
-      highlight = "NeoTreeModified",
-    },
-    name = {
-      trailing_slash = false,
-      use_git_status_colors = true,
-      highlight = "NeoTreeFileName",
-    },
-    git_status = {
-      symbols = {
-        -- Change type
-        added     = icons.GitAdd,
-        deleted   = icons.GitDelete,
-        modified  = icons.GitChange,
-        renamed   = icons.GitRenamed,
-        -- Status type
-        untracked = icons.GitUntracked,
-        ignored   = icons.GitIgnored,
-        unstaged  = icons.GitUnstaged,
-        staged    = icons.GitStaged,
-        conflict  = icons.GitConflict,
+    default_component_configs = {
+      diagnostics = {
+        symbols = {
+          hint = icons.DiagnosticHint,
+          info = icons.DiagnosticInfo,
+          warn = icons.DiagnosticWarn,
+          error = icons.DiagnosticError,
+        },
+        highlights = {
+          hint = "DiagnosticSignHint",
+          info = "DiagnosticSignInfo",
+          warn = "DiagnosticSignWarn",
+          error = "DiagnosticSignError",
+        },
       },
-      align = "right",
+      indent = {
+        indent_size = 2,
+        padding = 1,
+        -- indent guides
+        with_markers = true,
+        indent_marker = "│",
+        last_indent_marker = "└",
+        highlight = "NeoTreeIndentMarker",
+        -- expander config, needed for nesting files
+        with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
+        expander_collapsed = icons.FoldClosed,
+        expander_expanded = icons.FoldOpened,
+        expander_highlight = "NeoTreeExpander",
+      },
+      icon = {
+        folder_closed = icons.FolderClosed,
+        folder_open = icons.FolderOpen,
+        folder_empty = icons.FolderEmpty,
+        -- folder_empty_open = "ﰊ",
+        -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
+        -- then these will never be used.
+        default = icons.DefaultFile,
+        highlight = "NeoTreeFileIcon"
+      },
+      modified = {
+        symbol = icons.FileModified,
+        highlight = "NeoTreeModified",
+      },
+      name = {
+        trailing_slash = false,
+        use_git_status_colors = true,
+        highlight = "NeoTreeFileName",
+      },
+      git_status = {
+        symbols = {
+          -- Change type
+          added     = icons.GitAdd,
+          deleted   = icons.GitDelete,
+          modified  = icons.GitChange,
+          renamed   = icons.GitRenamed,
+          -- Status type
+          untracked = icons.GitUntracked,
+          ignored   = icons.GitIgnored,
+          unstaged  = icons.GitUnstaged,
+          staged    = icons.GitStaged,
+          conflict  = icons.GitConflict,
+        },
+        align = "right",
+      },
     },
-  },
   },
 }
 -- local config = {
@@ -119,7 +121,7 @@ return {
 --     -- Anything before this will be used. The last items to be processed are the untracked files.
 --   },
 --   hide_root_node = false, -- Hide the root node.
---   retain_hidden_root_indent = false, -- IF the root node is hidden, keep the indentation anyhow. 
+--   retain_hidden_root_indent = false, -- IF the root node is hidden, keep the indentation anyhow.
 --   -- This is needed if you use expanders because they render in the indent.
 --   log_level = "info", -- "trace", "debug", "info", "warn", "error", "fatal"
 --   log_to_file = false, -- true, false, "/path/to/file.log", use :NeoTreeLogs to show the file
