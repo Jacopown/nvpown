@@ -1,21 +1,22 @@
 local icons = require('icons')
 return {
   'nvim-neo-tree/neo-tree.nvim',
+  enabled = false,
   pin = true,
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
   },
-  keys = {
-    {
-      "<leader>e",
-      function()
-        require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-      end,
-      desc = "NeoTree Toggle",
-    },
-  },
+  -- keys = {
+  --   {
+  --     "<leader>e",
+  --     function()
+  --       require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+  --     end,
+  --     desc = "NeoTree Toggle",
+  --   },
+  -- },
   opts = {
     close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
     window = {
