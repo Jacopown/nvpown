@@ -14,7 +14,6 @@ return {
     highlight = { enable = true },
     incremental_selection = { enable = true }, --[[ test if used ]]
     indent = { enable = true },
-    context_commentstring = { enable = true, enable_autocmd = false },
     autotag = { enable = true },
   },
   config = function(_, opts)
