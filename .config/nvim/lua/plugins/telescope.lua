@@ -56,7 +56,10 @@ return {
           file_browser = {
             follow_symlinks = true,
             hidden = true,
-            ninja_ignore = true,
+            no_ignore = true,
+            -- cwd_to_path = true,
+            path = '%:p:h',
+            select_buffer = true
           },
         },
       }
@@ -67,6 +70,7 @@ return {
   {
     'nvim-telescope/telescope-file-browser.nvim',
     pin = true,
+    lazy = true,
     dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
   },
 }
