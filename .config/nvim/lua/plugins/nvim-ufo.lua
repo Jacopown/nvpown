@@ -1,6 +1,7 @@
 return {
   'kevinhwang91/nvim-ufo',
   -- pin = true,
+  lazy = false,
   dependencies = {
     'kevinhwang91/promise-async',
     -- {
@@ -24,6 +25,7 @@ return {
   keys = {
     { [[zR]], function() require("ufo").openAllFolds() end,  desc = "Open all folds" },
     { [[zM]], function() require('ufo').closeAllFolds() end, desc = "Close all folds" },
+    { [[za]] },
   },
   config = function()
     require("ufo").setup()

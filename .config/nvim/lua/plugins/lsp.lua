@@ -1,21 +1,46 @@
 local icons = require('icons')
-
 return {
   {
     'VonHeikemen/lsp-zero.nvim',
-    -- pin = true,
-    dependencies = {
-      'neovim/nvim-lspconfig',
-      'kevinhwang91/nvim-ufo',
+    branch = 'v3.x',
+    lazy = true,
+    config = true,
+  },
+
+  {
+    'williamboman/mason.nvim',
+    lazy = false,
+    -- pin = ture,
+    build = ':MasonUpdate',
+    opts = {
+      ui = {
+        border = "rounded",
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗"
+        }
+      },
     },
+  },
+
+  {
+    'neovim/nvim-lspconfig',
+    cmd = {'LspInfo', 'LspInstall', 'LspStart'},
+    event = {'BufReadPre', 'BufNewFile'},
     config = function()
-      local lsp = require('lsp-zero').preset({})
-
-      lsp.on_attach(function(_, bufnr)
-        lsp.default_keymaps({ buffer = bufnr })
+      local lsp_zero = require('lsp-zero')
+      lsp_zero.extend_lspconfig()
+      lsp_zero.on_attach(function(client, bufnr)
+        lsp_zero.default_keymaps({buffer = bufnr})
       end)
-
-      lsp.set_server_config({
+      lsp_zero.set_sign_icons({
+        error = icons.DiagnosticError,
+        warn = icons.DiagnosticWarn,
+        hint = icons.DiagnosticHint,
+        info = icons.DiagnosticInfo,
+      })
+      lsp_zero.set_server_config({
         capabilities = {
           textDocument = {
             foldingRange = {
@@ -25,38 +50,18 @@ return {
           }
         }
       })
-
-      lsp.format_on_save({
-        format_opts = {
-          async = false,
-          timeout_ms = 10000,
-        },
-        servers = {
-          ['lua_ls'] = { 'lua' },
-          -- if you have a working setup with null-ls
-          -- you can specify filetypes it can format.
-          -- ['null-ls'] = {'javascript', 'typescript'},
-        }
-      })
-
-      lsp.set_sign_icons({
-        error = icons.DiagnosticError,
-        warn = icons.DiagnosticWarn,
-        hint = icons.DiagnosticHint,
-        info = icons.DiagnosticInfo,
-      })
-      require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
-      lsp.setup()
-    end,
+    end
   },
+
   {
-    'neovim/nvim-lspconfig',
-    -- pin = true,
-    dependencies = {
+    'williamboman/mason-lspconfig.nvim',
+    requires = {
       'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      'hrsh7th/nvim-cmp',
+      'neovim/nvim-lspconfig',
     },
-  },
+    opts = {
+      ensure_installed = { 'lua_ls',  },
+      handlers = { require('lsp-zero').default_setup },
+    },
+  }
 }
