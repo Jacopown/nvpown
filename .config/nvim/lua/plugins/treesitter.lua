@@ -1,6 +1,7 @@
+local update = not (require('update').treesitter and require('update').all)
 return {
   'nvim-treesitter/nvim-treesitter',
-  pin = true,
+  pin = update,
   dependencies = {
     'windwp/nvim-ts-autotag',
     'JoosepAlviste/nvim-ts-context-commentstring',

@@ -4,4 +4,5 @@ return {
   autopairs = false,
   bufferline = false,
   ccc = false,
+  treesitter = false,
 }
