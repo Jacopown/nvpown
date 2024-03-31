@@ -1,6 +1,7 @@
+local update = not(require('update').bufferline and require('update').all)
 return {
   "akinsho/bufferline.nvim",
-  pin = true,
+  pin = update,
   event = 'VeryLazy',
   dependencies = {
     'nvim-tree/nvim-web-devicons',

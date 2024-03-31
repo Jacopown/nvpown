@@ -1,6 +1,7 @@
+local update = not(require('update').autopairs and require('update').all)
 return {
   'windwp/nvim-autopairs',
-  pin = true,
+  pin = update,
   opts = {
     check_ts = true,
     fast_wrap = {
