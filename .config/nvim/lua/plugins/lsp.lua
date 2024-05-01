@@ -60,7 +60,7 @@ return {
       'neovim/nvim-lspconfig',
     },
     opts = {
-      ensure_installed = { 'lua_ls',  },
+      ensure_installed = { 'lua_ls', 'jdtls'  },
       handlers = { require('lsp-zero').default_setup },
     },
   }
