@@ -8,7 +8,7 @@ return {
     lazy = false,
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
-      { 'ftd', '<cmd>:TodoTelescope<CR>' },
+      { "<leader>ft", function() Snacks.picker.todo_comments() end, desc = "Search todo comments" },
     },
     opts = {
       --TODO: puppa

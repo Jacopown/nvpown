@@ -97,19 +97,19 @@ local buttons = {
 }
 
 return {
-  {
-    "goolord/alpha-nvim",
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    opts = {
-      layout = {
-        { type = "padding", val = 2 },
-        header,
-        -- { type = "padding", val = 2 },
-        -- section_mru,
-        { type = "padding", val = 2 },
-        buttons,
-      },
-      opts = { margin = 10 },
-    }
-  }
+  -- {
+  --   "goolord/alpha-nvim",
+  --   dependencies = { 'nvim-tree/nvim-web-devicons' },
+  --   opts = {
+  --     layout = {
+  --       { type = "padding", val = 2 },
+  --       header,
+  --       -- { type = "padding", val = 2 },
+  --       -- section_mru,
+  --       { type = "padding", val = 2 },
+  --       buttons,
+  --     },
+  --     opts = { margin = 10 },
+  --   }
+  -- }
 }
