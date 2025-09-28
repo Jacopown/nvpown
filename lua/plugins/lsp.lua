@@ -83,22 +83,6 @@ return {
 
 		opts = {
 			servers = {
-				lua_ls = {
-					settings = {
-						Lua = {
-							hint = {
-								enable = true,
-								arrayIndex = "Disable",
-							},
-							runtime = {
-								version = "LuaJIT",
-							},
-							workspace = {
-								library = vim.api.nvim_get_runtime_file("", true),
-							},
-						},
-					},
-				},
 				basedpyright = {
 					settings = {
 						basedpyright = {
@@ -115,8 +99,23 @@ return {
 		config = function(_, opts)
 			for server, config in pairs(opts.servers) do
 				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-				require("lspconfig")[server].setup(config)
 			end
+			vim.lsp.config("lua_ls", {
+				Lua = {
+					hint = {
+						enable = true,
+						arrayIndex = "Disable",
+					},
+					runtime = {
+						version = "LuaJIT",
+					},
+					workspace = {
+						library = vim.api.nvim_get_runtime_file("", true),
+					},
+				},
+			})
+			vim.lsp.enable("lua_ls")
+			vim.lsp.enable("clangd")
 		end,
 	},
 	{
