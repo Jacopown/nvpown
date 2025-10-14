@@ -40,16 +40,16 @@
 -- * powershell
 -- LazyVim.terminal.setup("pwsh")
 
--- Set LSP servers to be ignored when used with `util.root.detectors.lsp`
--- for detecting the LSP root
--- vim.g.root_lsp_ignore = { "copilot" }
-
--- Hide deprecation warnings
--- vim.g.deprecation_warnings = false
-
--- Show the current document symbols location from Trouble in lualine
--- You can disable this for a buffer by setting `vim.b.trouble_lualine = false`
--- vim.g.trouble_lualine = true
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = "",        -- no extra symbol since the sign is already shown
+    spacing = 4,        -- space between text and code
+  },
+  signs = true,         -- keep the sign on the left
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+})
 
 local opt = vim.opt
 
