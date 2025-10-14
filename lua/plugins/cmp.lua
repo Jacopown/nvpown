@@ -5,6 +5,7 @@ return {
     "moyiz/blink-emoji.nvim",
   },
   version = '*',
+  event = "InsertEnter",
 
   opts = {
     keymap = { preset = 'default' },
