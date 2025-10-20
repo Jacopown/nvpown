@@ -10,14 +10,7 @@ local map = vim.keymap.set
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- better up/down
--- map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
--- map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
--- map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
--- map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
-
 map("i", "kj", "<ESC>", { desc = "Faster <Esc>", noremap = true })
-map("i", "jk", "<ESC>", { desc = "Faster <Esc>", noremap = true })
 map("n", "<ESC>", "<cmd>nohlsearch<CR>", { desc = "Deactivate hlsearch", noremap = true })
 
 -- Move to window using the <ctrl> hjkl keys
@@ -40,12 +33,12 @@ map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 -- map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
 -- map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
 --
--- -- buffers
+-- buffers
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
--- map("n", "<S-q>", function()
---   Snacks.bufdelete()
--- end, { desc = "Delete Buffer" })
+map("n", "<S-q>", function()
+	Snacks.bufdelete()
+end, { desc = "Delete Buffer" })
 --
 -- -- Clear search and stop snippet on escape
 -- -- map({ "i", "n", "s" }, "<esc>", function()
@@ -59,8 +52,8 @@ map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 -- map("i", ".", ".<c-g>u")
 -- map("i", ";", ";<c-g>u")
 --
--- -- save file
--- map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+-- save file
+map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 --
 -- --keywordprg
 -- map("n", "<leader>K", "<cmd>norm! K<cr>", { desc = "Keywordprg" })
@@ -111,7 +104,7 @@ map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 --     go({ severity = severity })
 --   end
 -- end
--- map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+map("n", "<leader>d", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 -- map("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
 -- map("n", "[d", diagnostic_goto(false), { desc = "Prev Diagnostic" })
 -- map("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
