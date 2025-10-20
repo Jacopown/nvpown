@@ -18,16 +18,34 @@ return {
 			},
 		},
 	},
-  {
-    "catgoose/nvim-colorizer.lua",
-    event = "VeryLazy",
-    opts = {
-      lazy_load = true,
-      -- other setup options
-    },
-  },
+	{
+		"catgoose/nvim-colorizer.lua",
+		event = "VeryLazy",
+		opts = {
+			lazy_load = true,
+			-- other setup options
+		},
+	},
 	{
 		"OXY2DEV/markview.nvim",
 		ft = "markdown",
+	},
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+		keys = {
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
 	},
 }
