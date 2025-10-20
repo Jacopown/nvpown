@@ -142,8 +142,15 @@ return {
 				},
 				jdtls = {
 					root_markers = {
-						{ "build.xml", "pom.xml", "settings.gradle", "settings.gradle.kts" },
-						{ "mvnw", "gradlew", "build.gradle", "build.gradle.kts", ".git" },
+						"build.xml",
+						"pom.xml",
+						"settings.gradle",
+						"settings.gradle.kts",
+						"mvnw",
+						"gradlew",
+						"build.gradle",
+						"build.gradle.kts",
+						".git",
 					},
 					cmd = {
 						-- 💀
