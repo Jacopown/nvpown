@@ -1,5 +1,5 @@
 local function find_root()
-	local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
+	local root_markers = { "mvnw", "gradlew", "pom.xml", "build.gradle", ".git" }
 	local path = vim.fn.getcwd()
 	while path ~= "/" do
 		for _, marker in ipairs(root_markers) do
@@ -10,19 +10,6 @@ local function find_root()
 		path = vim.fn.fnamemodify(path, ":h")
 	end
 	return vim.fn.getcwd()
-end
-
-local function start_or_attach_jdtls(config)
-	-- Check for existing client
-	for _, client in ipairs(vim.lsp.get_clients()) do
-		if client.name == "jdtls" and client.config.root_dir == config.root_dir then
-			vim.lsp.buf_attach_client(0, client.id)
-			return
-		end
-	end
-
-	-- Start new client if none found
-	vim.lsp.start(config)
 end
 
 local home = os.getenv("HOME")
@@ -154,12 +141,14 @@ return {
 					settings = {},
 				},
 				jdtls = {
+					root_markers = {
+						{ "build.xml", "pom.xml", "settings.gradle", "settings.gradle.kts" },
+						{ "mvnw", "gradlew", "build.gradle", "build.gradle.kts", ".git" },
+					},
 					cmd = {
-
 						-- 💀
 						"java", -- or '/path/to/java17_or_newer/bin/java'
 						-- depends on if `java` is in your $PATH env variable and if it points to the right version.
-
 						"-Declipse.application=org.eclipse.jdt.ls.core.id1",
 						"-Dosgi.bundles.defaultStartLevel=4",
 						"-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -171,21 +160,17 @@ return {
 						"java.base/java.util=ALL-UNNAMED",
 						"--add-opens",
 						"java.base/java.lang=ALL-UNNAMED",
-
 						-- 💀
 						"-jar",
 						path_to_jar,
-						-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
 						-- Must point to the                                                     Change this to
 						-- eclipse.jdt.ls installation                                           the actual version
-
 						-- 💀
 						"-configuration",
 						path_to_config,
 						-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
 						-- Must point to the                      Change to one of `linux`, `win` or `mac`
 						-- eclipse.jdt.ls installation            Depending on your system.
-
 						-- 💀
 						-- See `data directory configuration` section in the README
 						"-data",
@@ -199,11 +184,11 @@ return {
 		config = function(_, opts)
 			for server, config in pairs(opts.servers) do
 				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-				if server == "jdtls" then
-					start_or_attach_jdtls(config)
-				else
-					vim.lsp.config(server, config)
-				end
+				-- if server == "jdtls" then
+				-- 	start_or_attach_jdtls(config)
+				-- else
+				vim.lsp.config(server, config)
+				-- end
 			end
 		end,
 	},
@@ -224,9 +209,9 @@ return {
 		dependencies = "williamboman/mason.nvim",
 		opts = {
 			ensure_installed = { "lua_ls", "basedpyright", "clangd", "jdtls" },
-			automatic_enable = {
-				exclude = { "jdtls", },
-			},
+			-- automatic_enable = {
+			-- 	exclude = { "jdtls" },
+			-- },
 		},
 	},
 	{
