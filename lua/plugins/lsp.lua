@@ -12,98 +12,112 @@ local function find_root()
 	return vim.fn.getcwd()
 end
 
+local function get_jdtls_config_path(path_to_jdtls)
+    local os_name = vim.uv.os_uname().sysname
+    local config_path
+
+    if os_name == "Linux" then
+        config_path = path_to_jdtls .. "/config_linux"
+    elseif os_name == "Darwin" then
+        config_path = path_to_jdtls .. "/config_mac_arm"
+    else
+        error("JDTLS ERROR: OS '" .. os_name .. "' config not supported.")
+    end
+    return config_path
+end
 local home = os.getenv("HOME")
 local root_dir = find_root()
 local project_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
 local workspace_dir = home .. "/.cache/jdtls/workspace/" .. project_name
 
-local path_to_mason_packages = home .. "/.local/share/nvim/mason/packages"
-local path_to_jdtls = path_to_mason_packages .. "/jdtls"
+local path_to_jdtls = home .. "/.local/share/nvim/mason/packages/jdtls"
 local path_to_jar = path_to_jdtls .. "/plugins/org.eclipse.equinox.launcher_1.7.0.v20250519-0528.jar"
 
-local path_to_config = path_to_jdtls .. "/config_linux"
+-- local path_to_config = path_to_jdtls .. "/config_linux"
+local path_to_config = get_jdtls_config_path(path_to_jdtls)
+-- local keys = require("config.keymaps").lsp_keys
 
 return {
 	{
 		"neovim/nvim-lspconfig",
 		lazy = false,
-		keys = {
-			{
-				"<leader>ff",
-				function(bufnr)
-					vim.lsp.buf.format({
-						filter = function(client)
-							return client.name == "null-ls"
-						end,
-						bufnr = bufnr,
-					})
-				end,
-				mode = { "n", "v" },
-			},
-			-- {
-			--   "<leader>ff",
-			--   function()
-			--     vim.lsp.buf.format({ async = false})
-			--   end,
-			--   mode = { "n", "v" },
-			-- },
-			{
-				"gc",
-				function()
-					vim.lsp.buf.code_action()
-				end,
-				"n",
-			},
-			{
-				"gD",
-				function()
-					Snacks.picker.lsp_declarations()
-				end,
-				"n",
-			}, -- usually not implemented by by lsps
-			{
-				"gd",
-				function()
-					Snacks.picker.lsp_definitions()
-				end,
-				"n",
-			},
-			{
-				"<S-k>",
-				function()
-					vim.lsp.buf.hover()
-				end,
-				"n",
-			},
-			{
-				"gi",
-				function()
-					Snacks.picker.lsp_implementations()
-				end,
-				"n",
-			},
-			{
-				"gr",
-				function()
-					Snacks.picker.lsp_references()
-				end,
-				"n",
-			},
-			{
-				"gR",
-				function()
-					vim.lsp.buf.rename()
-				end,
-				"n",
-			},
-			{
-				"gh",
-				function()
-					vim.lsp.buf.signature_help()
-				end,
-				"n",
-			},
-		},
+    keys = {
+    {
+      "<leader>ff",
+      function(bufnr)
+        vim.lsp.buf.format({
+          filter = function(client)
+            return client.name == "null-ls"
+          end,
+          bufnr = bufnr,
+        })
+      end,
+      mode = { "n", "v" },
+    },
+    -- {
+    --   "<leader>ff",
+    --   function()
+    --     vim.lsp.buf.format({ async = false})
+    --   end,
+    --   mode = { "n", "v" },
+    -- },
+    {
+      "gc",
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      "n",
+    },
+    {
+      "gD",
+      function()
+        Snacks.picker.lsp_declarations()
+      end,
+      "n",
+    }, -- usually not implemented by by lsps
+    {
+      "gd",
+      function()
+        Snacks.picker.lsp_definitions()
+      end,
+      "n",
+    },
+    {
+      "<S-k>",
+      function()
+        vim.lsp.buf.hover()
+      end,
+      "n",
+    },
+    {
+      "gi",
+      function()
+        Snacks.picker.lsp_implementations()
+      end,
+      "n",
+    },
+    {
+      "gr",
+      function()
+        Snacks.picker.lsp_references()
+      end,
+      "n",
+    },
+    {
+      "gR",
+      function()
+        vim.lsp.buf.rename()
+      end,
+      "n",
+    },
+    {
+      "gh",
+      function()
+        vim.lsp.buf.signature_help()
+      end,
+      "n",
+    },
+  },
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
 		},
@@ -155,6 +169,7 @@ return {
 					cmd = {
 						-- 💀
 						"java", -- or '/path/to/java17_or_newer/bin/java'
+            -- "/opt/homebrew/Cellar/openjdk/25/libexec/openjdk.jdk/Contents/Home/bin/java",
 						-- depends on if `java` is in your $PATH env variable and if it points to the right version.
 						"-Declipse.application=org.eclipse.jdt.ls.core.id1",
 						"-Dosgi.bundles.defaultStartLevel=4",

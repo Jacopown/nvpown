@@ -197,3 +197,4 @@ map("n", "<leader>d", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 --     return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>" or "<S-Tab>"
 --   end, { expr = true, desc = "Jump Previous" })
 -- end
+--lsp keymaps
