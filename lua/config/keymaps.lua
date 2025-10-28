@@ -36,9 +36,12 @@ map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 -- buffers
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "<S-q>", function()
-	Snacks.bufdelete()
-end, { desc = "Delete Buffer" })
+map("n", "<S-q>", function() Snacks.bufdelete() end, { desc = "Delete Buffer" })
+
+map("n", "<leader>e", function() Snacks.picker.explorer() end, { desc =  "File Explorer"})
+map("n", "<leader>lg", function() Snacks.lazygit.open() end, { desc =  "Open Lazygit"})
+map("n", "<leader>tt", function() Snacks.terminal.toggle() end, { desc =  "Toggle terminal"})
+
 --
 -- -- Clear search and stop snippet on escape
 -- -- map({ "i", "n", "s" }, "<esc>", function()
