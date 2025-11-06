@@ -33,9 +33,7 @@ local workspace_dir = home .. "/.cache/jdtls/workspace/" .. project_name
 local path_to_jdtls = home .. "/.local/share/nvim/mason/packages/jdtls"
 local path_to_jar = path_to_jdtls .. "/plugins/org.eclipse.equinox.launcher_1.7.0.v20250519-0528.jar"
 
--- local path_to_config = path_to_jdtls .. "/config_linux"
 local path_to_config = get_jdtls_config_path(path_to_jdtls)
--- local keys = require("config.keymaps").lsp_keys
 
 return {
 	{
@@ -54,13 +52,6 @@ return {
       end,
       mode = { "n", "v" },
     },
-    -- {
-    --   "<leader>ff",
-    --   function()
-    --     vim.lsp.buf.format({ async = false})
-    --   end,
-    --   mode = { "n", "v" },
-    -- },
     {
       "gc",
       function()
@@ -142,13 +133,10 @@ return {
 				},
 				basedpyright = {
 					settings = {
-						basedpyright = {
-							analysis = {
-								-- autoSearchPaths = true,
-								-- diagnosticMode = "openFilesOnly",
-								-- useLibraryCodeForTypes = true
-							},
-						},
+            python = {
+              venvPath = "~/miniforge3/envs/"
+            },
+						basedpyright = {},
 					},
 				},
 				clangd = {
@@ -207,7 +195,7 @@ return {
 			for server, config in pairs(opts.servers) do
 				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
 				-- if server == "jdtls" then
-				-- 	start_or_attach_jdtls(config)
+				-- start_or_attach_jdtls(config)
 				-- else
 				vim.lsp.config(server, config)
 				-- end
