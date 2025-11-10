@@ -188,17 +188,14 @@ return {
 					},
 					settings = {},
 				},
+        asm_lsp = {},
 			},
 		},
 
 		config = function(_, opts)
 			for server, config in pairs(opts.servers) do
 				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-				-- if server == "jdtls" then
-				-- start_or_attach_jdtls(config)
-				-- else
 				vim.lsp.config(server, config)
-				-- end
 			end
 		end,
 	},
@@ -218,10 +215,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = "williamboman/mason.nvim",
 		opts = {
-			ensure_installed = { "lua_ls", "basedpyright", "clangd", "jdtls" },
-			-- automatic_enable = {
-			-- 	exclude = { "jdtls" },
-			-- },
+			ensure_installed = { "lua_ls", "basedpyright", "clangd", "jdtls", "asm_lsp" },
 		},
 	},
 	{
