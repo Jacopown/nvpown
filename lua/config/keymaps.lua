@@ -1,10 +1,3 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
--- This file is automatically loaded by lazyvim.config.init
-
--- DO NOT USE `LazyVim.safe_keymap_set` IN YOUR OWN CONFIG!!
--- use `vim.keymap.set` instead
 local map = vim.keymap.set
 
 vim.g.mapleader = " "
@@ -40,18 +33,12 @@ map("n", "<S-q>", function()
 	Snacks.bufdelete()
 end, { desc = "Delete Buffer" })
 
-map("n", "<leader>e", function()
-	Snacks.picker.files()
+map("n", "<leader>e", "<cmd>Ex<cr>", { desc = "File Explorer" })
+
+map("n", "<leader>ff", function()
+	Snacks.picker.files({hidden = true, follow = true, ignored = true })
 end, { desc = "File Explorer" })
 
---
--- -- Clear search and stop snippet on escape
--- -- map({ "i", "n", "s" }, "<esc>", function()
---   -- vim.cmd("noh")
---   -- LazyVim.cmp.actions.snippet_stop()
---   -- return "<esc>"
--- -- end, { expr = true, desc = "Escape and Clear hlsearch" })
---
 -- -- Add undo break-points
 -- map("i", ",", ",<c-g>u")
 -- map("i", ".", ".<c-g>u")
@@ -60,22 +47,13 @@ end, { desc = "File Explorer" })
 -- save file
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 --
--- --keywordprg
--- map("n", "<leader>K", "<cmd>norm! K<cr>", { desc = "Keywordprg" })
---
 -- -- better indenting
--- map("v", "<", "<gv")
--- map("v", ">", ">gv")
+map("v", "<", "<gv")
+map("v", ">", ">gv")
 --
 -- -- commenting
 -- map("n", "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Below" })
 -- map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Above" })
---
--- -- lazy
--- map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
---
--- -- new file
--- map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 --
 -- -- location list
 -- map("n", "<leader>xl", function()
@@ -101,14 +79,14 @@ map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 --   -- LazyVim.format({ force = true })
 -- -- end, { desc = "Format" })
 
-map({ "n", "v" }, "<leader>ff", function(bufnr)
-	vim.lsp.buf.format({
-		filter = function(client)
-			return client.name == "null-ls"
-		end,
-		bufnr = bufnr,
-	})
-end, { desc = "Format" })
+-- map({ "n", "v" }, "<leader>ff", function(bufnr)
+-- 	vim.lsp.buf.format({
+-- 		filter = function(client)
+-- 			return client.name == "null-ls"
+-- 		end,
+-- 		bufnr = bufnr,
+-- 	})
+-- end, { desc = "Format" })
 
 -- -- diagnostic/lsp
 map("n", "gc", function()
