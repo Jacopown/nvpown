@@ -74,18 +74,19 @@ return {
 				{ section = "startup" },
 			},
 		},
-		explorer = {},
+		explorer = {
+      replace_netrw = false,
+    },
 		image = {},
 		indent = {},
 		input = {},
 		picker = {
-			sources = {
-				explorer = {
-					auto_close = true,
-					layout = { preset = "default", preview = true },
-				},
-			},
-		},
+      files = {
+        hidden = true,
+        ignored = true,
+        follow = true
+      },
+    },
 		quickfile = {},
 		terminal = { win = { style = "float" } },
 		statuscolumn = {},

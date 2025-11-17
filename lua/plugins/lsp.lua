@@ -1,4 +1,4 @@
-local function find_root()
+  local function find_root()
 	local root_markers = { "mvnw", "gradlew", "pom.xml", "build.gradle", ".git" }
 	local path = vim.fn.getcwd()
 	while path ~= "/" do
@@ -39,76 +39,6 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		lazy = false,
-    keys = {
-    {
-      "<leader>ff",
-      function(bufnr)
-        vim.lsp.buf.format({
-          filter = function(client)
-            return client.name == "null-ls"
-          end,
-          bufnr = bufnr,
-        })
-      end,
-      mode = { "n", "v" },
-    },
-    {
-      "gc",
-      function()
-        vim.lsp.buf.code_action()
-      end,
-      "n",
-    },
-    {
-      "gD",
-      function()
-        Snacks.picker.lsp_declarations()
-      end,
-      "n",
-    }, -- usually not implemented by by lsps
-    {
-      "gd",
-      function()
-        Snacks.picker.lsp_definitions()
-      end,
-      "n",
-    },
-    {
-      "<S-k>",
-      function()
-        vim.lsp.buf.hover()
-      end,
-      "n",
-    },
-    {
-      "gi",
-      function()
-        Snacks.picker.lsp_implementations()
-      end,
-      "n",
-    },
-    {
-      "gr",
-      function()
-        Snacks.picker.lsp_references()
-      end,
-      "n",
-    },
-    {
-      "gR",
-      function()
-        vim.lsp.buf.rename()
-      end,
-      "n",
-    },
-    {
-      "gh",
-      function()
-        vim.lsp.buf.signature_help()
-      end,
-      "n",
-    },
-  },
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
 		},
@@ -189,6 +119,11 @@ return {
 					settings = {},
 				},
         asm_lsp = {},
+        bashls = {
+          -- filetypes = { "bash", "sh", "zsh" },
+          filetypes = { "zsh" },
+          settings = {},
+        }
 			},
 		},
 
