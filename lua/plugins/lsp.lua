@@ -120,8 +120,7 @@ return {
 				},
         asm_lsp = {},
         bashls = {
-          -- filetypes = { "bash", "sh", "zsh" },
-          filetypes = { "zsh" },
+          filetypes = { "bash", "sh", "zsh" },
           settings = {},
         }
 			},
@@ -150,7 +149,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = "williamboman/mason.nvim",
 		opts = {
-			ensure_installed = { "lua_ls", "basedpyright", "clangd", "jdtls", "asm_lsp" },
+			ensure_installed = { "lua_ls", "basedpyright", "clangd", "jdtls", "asm_lsp", "bashls" },
 		},
 	},
 	{
