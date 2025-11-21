@@ -36,8 +36,12 @@ end, { desc = "Delete Buffer" })
 map("n", "<leader>e", "<cmd>Ex<cr>", { desc = "File Explorer" })
 
 map("n", "<leader>ff", function()
-	Snacks.picker.files({hidden = true, follow = true, ignored = true })
+	Snacks.picker.files({ hidden = true, follow = true, ignored = true })
 end, { desc = "File Explorer" })
+
+map("n", "<leader>fh", function()
+	Snacks.picker.help()
+end, { desc = "Help Pages" })
 
 -- -- Add undo break-points
 -- map("i", ",", ",<c-g>u")
@@ -89,7 +93,7 @@ map("v", ">", ">gv")
 -- end, { desc = "Format" })
 
 -- -- diagnostic/lsp
-map("n", "gc", function()
+map("n", "gca", function()
 	vim.lsp.buf.code_action()
 end, { desc = "Code Action" })
 
@@ -113,6 +117,12 @@ map("n", "gh", function()
 	vim.lsp.buf.signature_help()
 end, { desc = "Help" })
 
+map("n", "<leader>sd", function()
+	Snacks.picker.diagnostics()
+end, { desc = "Diagnostics" })
+map("n", "<leader>sD", function()
+	Snacks.picker.diagnostics_buffer()
+end, { desc = "Buffer Diagnostics" })
 -- local diagnostic_goto = function(next, severity)
 --   local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
 --   severity = severity and vim.diagnostic.severity[severity] or nil
