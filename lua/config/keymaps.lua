@@ -1,10 +1,24 @@
 local map = vim.keymap.set
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 map("i", "kj", "<ESC>", { desc = "Faster <Esc>", noremap = true })
 map("n", "<ESC>", "<cmd>nohlsearch<CR>", { desc = "Deactivate hlsearch", noremap = true })
+
+-- buffers
+map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+map("n", "<leader>e", "<cmd>Ex<cr>", { desc = "File Explorer" })
+
+-- save file
+map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+
+-- -- better indenting
+map("v", "<", "<gv")
+map("v", ">", ">gv")
+
+-- -- diagnostic/lsp
+map("n", "gca", function() vim.lsp.buf.code_action() end, { desc = "Code Action" })
+map("n", "gR", function() vim.lsp.buf.rename() end, { desc = "Rename" })
+map("n", "gh", function() vim.lsp.buf.signature_help() end, { desc = "Help" })
 
 -- Move to window using the <ctrl> hjkl keys
 -- map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
@@ -25,35 +39,11 @@ map("n", "<ESC>", "<cmd>nohlsearch<CR>", { desc = "Deactivate hlsearch", noremap
 -- map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
 -- map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
 -- map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
---
--- buffers
-map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "<S-q>", function()
-	Snacks.bufdelete()
-end, { desc = "Delete Buffer" })
-
-map("n", "<leader>e", "<cmd>Ex<cr>", { desc = "File Explorer" })
-
-map("n", "<leader>ff", function()
-	Snacks.picker.files({ hidden = true, follow = true, ignored = true })
-end, { desc = "File Explorer" })
-
-map("n", "<leader>fh", function()
-	Snacks.picker.help()
-end, { desc = "Help Pages" })
 
 -- -- Add undo break-points
 -- map("i", ",", ",<c-g>u")
 -- map("i", ".", ".<c-g>u")
 -- map("i", ";", ";<c-g>u")
---
--- save file
-map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
---
--- -- better indenting
-map("v", "<", "<gv")
-map("v", ">", ">gv")
 --
 -- -- commenting
 -- map("n", "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Below" })
@@ -92,37 +82,7 @@ map("v", ">", ">gv")
 -- 	})
 -- end, { desc = "Format" })
 
--- -- diagnostic/lsp
-map("n", "gca", function()
-	vim.lsp.buf.code_action()
-end, { desc = "Code Action" })
 
-map("n", "gD", function()
-	Snacks.picker.lsp_declarations()
-end, { desc = "Declarations" })
-
-map("n", "gd", function()
-	Snacks.picker.lsp_definitions()
-end, { desc = "Definitions" })
-
-map("n", "gr", function()
-	Snacks.picker.lsp_references()
-end, { desc = "Implementations" })
-
-map("n", "gR", function()
-	vim.lsp.buf.rename()
-end, { desc = "Rename" })
-
-map("n", "gh", function()
-	vim.lsp.buf.signature_help()
-end, { desc = "Help" })
-
-map("n", "<leader>sd", function()
-	Snacks.picker.diagnostics()
-end, { desc = "Diagnostics" })
-map("n", "<leader>sD", function()
-	Snacks.picker.diagnostics_buffer()
-end, { desc = "Buffer Diagnostics" })
 -- local diagnostic_goto = function(next, severity)
 --   local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
 --   severity = severity and vim.diagnostic.severity[severity] or nil
