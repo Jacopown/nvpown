@@ -16,9 +16,16 @@ map("v", "<", "<gv")
 map("v", ">", ">gv")
 
 -- -- diagnostic/lsp
+map("n", "gd", function() vim.lsp.buf.definition()end, { desc = "Goto Definition" })
+map("n", "gD", function() vim.lsp.buf.declaration() end, { desc = "Goto Declaration" })
+map("n", "gI", function() vim.lsp.buf.implementation() end, { desc = "Goto Declaration" })
 map("n", "gca", function() vim.lsp.buf.code_action() end, { desc = "Code Action" })
 map("n", "gR", function() vim.lsp.buf.rename() end, { desc = "Rename" })
 map("n", "gh", function() vim.lsp.buf.signature_help() end, { desc = "Help" })
+map("n", "<S-d>k", function() vim.diagnostic.open_float() end, { desc = "Line Diagnostic show" })
+map("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+
+
 
 -- Move to window using the <ctrl> hjkl keys
 -- map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
