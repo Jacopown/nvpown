@@ -66,7 +66,6 @@ return {
             python = {
               venvPath = "~/miniforge3/envs/"
             },
-						basedpyright = {},
 					},
 				},
 				clangd = {
@@ -122,6 +121,7 @@ return {
         bashls = {
           filetypes = { "bash", "sh", "zsh" },
           settings = {},
+        neocmake = {},
         }
 			},
 		},
@@ -149,7 +149,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = "williamboman/mason.nvim",
 		opts = {
-			ensure_installed = { "lua_ls", "basedpyright", "clangd", "jdtls", "asm_lsp", "bashls" },
+			ensure_installed = { "lua_ls", "basedpyright", "clangd", "jdtls", "asm_lsp", "bashls", "neocmake" },
 		},
 	},
 	{
