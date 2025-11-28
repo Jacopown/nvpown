@@ -12,21 +12,4 @@ return {
       {'gcA', mode="n", desc = "Insert comment to end of the current line and enters INSERT mode"},
     }
   },
-  {
-    "folke/todo-comments.nvim",
-    lazy = false,
-    dependencies = { "nvim-lua/plenary.nvim" },
-    keys = {
-      { "<leader>ft", function() Snacks.picker.todo_comments() end, desc = "Search todo comments" },
-    },
-    opts = {
-      --TODO: puppa
-      --FIX: dhn
-      --HACK: minchia
-      --PERF: boia
-      --NOTE: salame
-      --WARNING: caccca
-      --BUG: alssoi8fwoiehasf
-    }
-  }
 }
