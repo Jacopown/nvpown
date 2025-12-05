@@ -6,7 +6,7 @@ map("n", "<ESC>", "<cmd>nohlsearch<CR>", { desc = "Deactivate hlsearch", noremap
 -- buffers
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "<leader>e", "<cmd>Ex<cr>", { desc = "File Explorer" })
+map("n", "<leader>e", "<cmd>Oil<cr>", { desc = "File Explorer" })
 
 -- save file
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
