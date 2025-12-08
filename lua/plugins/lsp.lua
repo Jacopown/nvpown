@@ -70,7 +70,12 @@ return {
 				},
 				clangd = {
 					settings = {},
-				},
+          cmd = {
+            "clangd",
+            "--background-index", -- CRITICAL: Allows clangd to know who includes what
+            "--clang-tidy",
+            "--header-insertion=iwyu",},
+          },
 				jdtls = {
 					root_markers = {
 						"build.xml",
