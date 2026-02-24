@@ -72,10 +72,10 @@ return {
 					settings = {},
           cmd = {
             "clangd",
-            "--background-index", -- CRITICAL: Allows clangd to know who includes what
-            "--clang-tidy",
-            "--header-insertion=iwyu",},
+            "--query-driver=/usr/bin/c++,/opt/cuda/bin/nvcc,/usr/bin/clang++,/usr/bin/g++",
+            "--log=verbose"
           },
+        },
 				jdtls = {
 					root_markers = {
 						"build.xml",
@@ -127,6 +127,7 @@ return {
           filetypes = { "bash", "sh", "zsh" },
           settings = {},
         neocmake = {},
+        ts_ls = {},
         }
 			},
 		},
