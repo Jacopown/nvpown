@@ -3,6 +3,8 @@ return {
   opts = {
     dashboard = {},
     explorer = { replace_netrw = false },
+    indent = {},
+    zen = {},
     picker = {
       sources = {
         files = {
@@ -18,6 +20,7 @@ return {
     { "<leader>fh", function() Snacks.picker.help() end, desc = "Help Pages" },
     { "<leader>fd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
     { "<leader>fD", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
+    { "<leader>z", function() Snacks.zen() end, desc = "Toggle Zen Mode" },
     { "gr", function() Snacks.picker.lsp_references() end, desc = "Find References" },
     { "<S-q>", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
   },
