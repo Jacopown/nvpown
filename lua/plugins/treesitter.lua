@@ -4,7 +4,7 @@ return {
     lazy = false,
     build = ':TSUpdate',
     config = function()
-      local filetypes = { 'bash', 'c', 'cmake', 'cpp','css', 'csv', 'cuda', 'html', 'java', 'javascript', 'json', 'lua', 'markdown', 'markdown_inline', 'matlab', 'python', 'sql', 'vim', 'vimdoc' }
+      local filetypes = { 'bash', 'c', 'cmake', 'cpp','css', 'csv', 'cuda', 'html', 'java', 'javascript', 'json', 'lua', 'markdown', 'markdown_inline', 'matlab', 'python', 'rust', 'sql', 'vim', 'vimdoc' }
       require('nvim-treesitter').install(filetypes)
       vim.api.nvim_create_autocmd('FileType', {
         pattern = filetypes,
