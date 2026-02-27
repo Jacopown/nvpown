@@ -64,7 +64,7 @@ return {
 				basedpyright = {
 					settings = {
             python = {
-              venvPath = "~/miniforge3/envs/"
+              venvPath = "~/mamba/envs/"
             },
 					},
 				},
