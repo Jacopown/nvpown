@@ -64,7 +64,7 @@ return {
 				basedpyright = {
 					settings = {
             python = {
-              venvPath = "~/mamba/envs/"
+              venvPath = "~/micromamba/envs/"
             },
 					},
 				},
@@ -122,13 +122,18 @@ return {
 					},
 					settings = {},
 				},
-        asm_lsp = {},
         bashls = {
           filetypes = { "bash", "sh", "zsh" },
-          settings = {},
-        neocmake = {},
-        ts_ls = {},
-        }
+        },
+        vtsls = {
+          settings = {
+            ["js/ts"] = {
+              implicitProjectConfig = {
+                checkJs = true
+              }
+            }
+          }
+        },
 			},
 		},
 
