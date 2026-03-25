@@ -64,7 +64,8 @@ return {
 				basedpyright = {
 					settings = {
             python = {
-              venvPath = "~/micromamba/envs/"
+              -- venvPath = "~/micromamba/envs/"
+              venvPath = "~/mamba/envs/"
             },
 					},
 				},
