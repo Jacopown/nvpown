@@ -26,6 +26,20 @@ vim.o.shiftwidth = 2
 vim.o.softtabstop = 2
 vim.o.expandtab = true
 
+vim.o.foldcolumn = '1' -- Space for statuscol.nvim icons
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
+vim.opt.fillchars = {
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+  foldsep = " ",
+  diff = "╱",
+  eob = " ",
+}
+
 -- vim.diagnostic.config({
 --   virtual_text = {
 --     prefix = "",        -- no extra symbol since the sign is already shown

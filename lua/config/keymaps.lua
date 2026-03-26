@@ -26,6 +26,16 @@ map("n", "<S-d>k", function() vim.diagnostic.open_float() end, { desc = "Line Di
 map("n", "<leader>ft", function() vim.lsp.buf.format() end, { desc = "Format buffer" })
 map("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
+-- folding
+map('n', 'zR', function() require('ufo').openAllFolds() end, { desc = "Open all folds" })
+map('n', 'zM', function() require('ufo').closeAllFolds() end, { desc = "Close all folds" })
+map('n', 'zk', function()
+  local winid = require('ufo').peekFoldedLinesUnderCursor()
+  if not winid then
+    vim.lsp.buf.hover()
+  end
+end, { desc = "Peek fold" })
+
 
 
 -- Move to window using the <ctrl> hjkl keys

@@ -64,8 +64,8 @@ return {
 				basedpyright = {
 					settings = {
             python = {
-              -- venvPath = "~/micromamba/envs/"
-              venvPath = "~/mamba/envs/"
+              venvPath = "~/micromamba/envs/"
+              -- venvPath = "~/mamba/envs/"
             },
 					},
 				},
@@ -140,7 +140,12 @@ return {
 
 		config = function(_, opts)
 			for server, config in pairs(opts.servers) do
-				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+				local capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+				capabilities.textDocument.foldingRange = {
+					dynamicRegistration = false,
+					lineFoldingOnly = true,
+				}
+				config.capabilities = capabilities
 				vim.lsp.config(server, config)
 			end
 		end,
