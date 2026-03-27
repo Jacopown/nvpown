@@ -28,6 +28,7 @@ vim.o.signcolumn = "yes"      -- Mostra sempre la colonna laterale (per icone/er
 vim.o.wrap = false            -- Disabilita l'andata a capo automatica delle righe
 vim.o.showmode = false        -- Nasconde l'indicatore della modalità (-- INSERT --) in basso
 vim.o.termguicolors = true    -- True color support
+vim.o.winborder = 'rounded'
 
 vim.opt.fillchars = {         -- Personalizza i caratteri di riempimento dell'interfaccia
   foldopen = "",
@@ -91,7 +92,7 @@ vim.o.foldenable = true       -- Abilita il sistema di folding
 -- opt.foldtext = ""
 
 -------------------------------------------------------------------------------
--- 7. Diagnostica (Errori e Avvisi)
+-- 7. Diagnostica
 -------------------------------------------------------------------------------
 vim.diagnostic.config({
   signs = {
