@@ -40,31 +40,29 @@ vim.opt.fillchars = {
   eob = " ",
 }
 
--- vim.diagnostic.config({
---   virtual_text = {
---     prefix = "",        -- no extra symbol since the sign is already shown
---     spacing = 4,        -- space between text and code
---   },
---   signs = true,         -- keep the sign on the left
---   underline = true,
---   update_in_insert = false,
---   severity_sort = true,
--- })
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.HINT] = "󰌵 ",
+      [vim.diagnostic.severity.INFO] = " ",
+    },
+  },
+  virtual_text = {
+    prefix = "",
+    spacing = 4,
+  },
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+})
 
 -- local opt = vim.opt
 --
 -- opt.autowrite = true -- Enable auto write
 -- opt.completeopt = "menu,menuone,noselect"
 -- opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
--- opt.fillchars = {
---   foldopen = "",
---   foldclose = "",
---   fold = " ",
---   foldsep = " ",
---   diff = "╱",
---   eob = " ",
--- }
--- opt.foldlevel = 99
 -- opt.formatexpr = "v:lua.require'lazyvim.util'.format.formatexpr()"
 -- opt.formatoptions = "jcroqlnt" -- tcqj
 -- opt.grepformat = "%f:%l:%c:%m"
@@ -78,7 +76,6 @@ vim.opt.fillchars = {
 -- opt.ruler = false -- Disable the default ruler
 -- opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 -- opt.shiftround = true -- Round indent
--- opt.shiftwidth = 2 -- Size of an indent
 -- opt.shortmess:append({ W = true, I = true, c = true, C = true })
 -- opt.smartindent = true -- Insert indents automatically
 -- opt.spelllang = { "en" }
