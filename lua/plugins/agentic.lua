@@ -4,10 +4,9 @@ return {
 
   opts = {
     -- Any ACP-compatible provider works. Built-in: "claude-agent-acp" | "gemini-acp" | "codex-acp" | "opencode-acp" | "cursor-acp" | "copilot-acp" | "auggie-acp" | "mistral-vibe-acp" | "cline-acp" | "goose-acp"
-    provider = "gemini-acp", -- setting the name here is all you need to get started
+    provider = "gemini-acp",
   },
 
-  -- these are just suggested keymaps; customize as desired
   keys = {
     {
       "<leader>aa",
@@ -28,7 +27,7 @@ return {
       desc = "New Agentic Session"
     },
     {
-      "<leader>ar", -- ai Restore
+      "<leader>ar",
       function()
           require("agentic").restore_session()
       end,
@@ -37,7 +36,7 @@ return {
       mode = { "n" },
     },
     {
-      "<leader>as", -- ai Restore
+      "<leader>ax",
       function()
           require("agentic").stop_generation()
       end,
@@ -46,7 +45,7 @@ return {
       mode = { "n" },
     },
     {
-      "<leader>ad", -- ai Diagnostics
+      "<leader>ad",
       function()
           require("agentic").add_current_line_diagnostics()
       end,
@@ -54,7 +53,7 @@ return {
       mode = { "n" },
     },
     {
-      "<leader>aD", -- ai all Diagnostics
+      "<leader>aD",
       function()
           require("agentic").add_buffer_diagnostics()
       end,

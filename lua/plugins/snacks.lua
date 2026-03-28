@@ -4,6 +4,7 @@ return {
     dashboard = {},
     explorer = { replace_netrw = false },
     indent = {},
+    input = { enabled = true },
     zen = {},
     picker = {
       sources = {
@@ -15,6 +16,16 @@ return {
       },
     },
   },
+  init = function()
+    vim.ui.select = function(...)
+      require("lazy").load({ plugins = { "snacks.nvim" } })
+      return Snacks.picker.select(...)
+    end
+    vim.ui.input = function(...)
+      require("lazy").load({ plugins = { "snacks.nvim" } })
+      return Snacks.input(...)
+    end
+  end,
   keys = {
     { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
     { "<leader>fw", function() Snacks.picker.grep() end, desc = "Find Word" },
