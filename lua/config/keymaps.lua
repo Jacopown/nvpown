@@ -42,6 +42,17 @@ map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
 map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 
+-- TreeSitter Text Objects
+map({ "o", "x" }, "af", function() require "nvim-treesitter-textobjects.select".select_textobject("@function.outer", "textobjects") end, { desc = "Select around function" })
+map({ "o", "x" }, "if", function() require "nvim-treesitter-textobjects.select".select_textobject("@function.inner", "textobjects") end, { desc = "Select inside function" })
+map({ "o", "x" }, "ac", function() require "nvim-treesitter-textobjects.select".select_textobject("@class.outer", "textobjects") end, { desc = "Select around class" })
+map({ "o", "x" }, "ic", function() require "nvim-treesitter-textobjects.select".select_textobject("@class.inner", "textobjects") end, { desc = "Select inside class" })
+
+map({"n", "x", "o"}, "]f", function() require "nvim-treesitter-textobjects.move".goto_next_start("@function.outer", "textobjects") end, { desc = "Next function" })
+map({"n", "x", "o"}, "[f", function() require "nvim-treesitter-textobjects.move".goto_previous_start("@function.outer", "textobjects") end, { desc = "Previous function" })
+map({"n", "x", "o"}, "]c", function() require "nvim-treesitter-textobjects.move".goto_next_start("@class.outer", "textobjects") end, { desc = "Next class" })
+map({"n", "x", "o"}, "[c", function() require "nvim-treesitter-textobjects.move".goto_previous_start("@class.outer", "textobjects") end, { desc = "Previous class" })
+
 -- -- Resize window using <ctrl> arrow keys
 -- map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
 -- map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
