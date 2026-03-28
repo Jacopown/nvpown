@@ -111,3 +111,9 @@ vim.diagnostic.config({
   update_in_insert = false,   -- Non aggiornare gli errori mentre scrivi
   severity_sort = true,       -- Mostra prima gli errori più gravi
 })
+
+-------------------------------------------------------------------------------
+-- 8. Altro (Markdown e Plugin)
+-------------------------------------------------------------------------------
+vim.g.copilot_enabled = false -- Copilot spento di default all'avvio
+-- vim.g.markdown_recommended_style = 0
