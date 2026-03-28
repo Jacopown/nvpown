@@ -29,6 +29,7 @@ vim.o.wrap = false            -- Disabilita l'andata a capo automatica delle rig
 vim.o.showmode = false        -- Nasconde l'indicatore della modalità (-- INSERT --) in basso
 vim.o.termguicolors = true    -- True color support
 vim.o.winborder = 'rounded'
+vim.o.laststatus = 3          -- Global statusline
 
 vim.opt.fillchars = {         -- Personalizza i caratteri di riempimento dell'interfaccia
   foldopen = "",
@@ -40,9 +41,6 @@ vim.opt.fillchars = {         -- Personalizza i caratteri di riempimento dell'in
 }
 
 -- opt.conceallevel = 2 -- Hide * markup for bold and italic
--- opt.laststatus = 3 -- Global statusline
--- opt.pumblend = 10 -- Popup blend (menu completamento)
--- opt.pumheight = 10 -- Altezza massima menu completamento
 -- opt.list = true -- Show some invisible characters
 
 -------------------------------------------------------------------------------
