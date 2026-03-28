@@ -5,6 +5,12 @@ return {
   opts = {
     -- Any ACP-compatible provider works. Built-in: "claude-agent-acp" | "gemini-acp" | "codex-acp" | "opencode-acp" | "cursor-acp" | "copilot-acp" | "auggie-acp" | "mistral-vibe-acp" | "cline-acp" | "goose-acp"
     provider = "gemini-acp",
+    diagnostic_icons = {
+      error = " ",
+      warn = " ",
+      hint = "󰌵 ",
+      info = " ",
+    },
   },
 
   keys = {
