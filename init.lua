@@ -1,1 +1,6 @@
-require("config.lazy")
+vim.pack.add({{ src = 'https://github.com/catppuccin/nvim', name = 'catppuccin' }})
+vim.cmd.colorscheme 'catppuccin-frappe'
+
+require('options')
+require('keymaps')
+require('autocmds')

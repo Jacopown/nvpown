@@ -1,4 +1,3 @@
--- ciao
 return {
   "carlos-algms/agentic.nvim",
 
