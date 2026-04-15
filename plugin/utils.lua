@@ -1,8 +1,13 @@
 vim.pack.add({
   'https://github.com/catgoose/nvim-colorizer.lua.git',
-  'https://github.com/folke/which-key.nvim.git'
+  'https://github.com/folke/which-key.nvim.git',
+  'https://github.com/nvim-tree/nvim-web-devicons',
+  'https://github.com/nvim-lualine/lualine.nvim.git'
 })
+
 vim.keymap.set('n', '<leader>?', function() require('which-key').show({ global = false }) end, { desc = 'Buffer Local Keymaps (which-key)' })
+
+require('lualine').setup()
 --   {
 --     "jiaoshijie/undotree",
 --     keys = { -- load the plugin only when using it's keybinding:
