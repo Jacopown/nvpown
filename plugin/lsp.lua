@@ -1,21 +1,12 @@
 vim.pack.add({
   'https://github.com/neovim/nvim-lspconfig',
-  'https://github.com/mason-org/mason.nvim.git'
+  'https://github.com/mason-org/mason.nvim.git',
+  'https://github.com/mason-org/mason-lspconfig.nvim.git'
 })
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()
-
 vim.lsp.config('*', {
     capabilities = capabilities,
-})
-
-vim.lsp.enable({
-    'basedpyright',
-    'bashls',
-    'clangd',
-    'jdtls',
-    'lua_ls',
-    'vtsls'
 })
 
 require('mason').setup({
@@ -26,6 +17,17 @@ require('mason').setup({
       package_uninstalled = '✗',
     },
   }
+})
+
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'basedpyright',
+    'bashls',
+    'clangd',
+    'jdtls',
+    'lua_ls',
+    'vtsls'
+  },
 })
 
 -- return {
