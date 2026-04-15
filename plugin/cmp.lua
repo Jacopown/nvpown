@@ -3,24 +3,26 @@ vim.pack.add({
   'https://github.com/moyiz/blink-emoji.nvim.git',
   'https://github.com/rafamadriz/friendly-snippets.git',
   'https://github.com/disrupted/blink-cmp-conventional-commits.git',
---   'https://github.com/zbirenbaum/copilot.lua.git',
---   'https://github.com/copilotlsp-nvim/copilot-lsp.git'
+  'https://github.com/zbirenbaum/copilot.lua.git',
+  'https://github.com/copilotlsp-nvim/copilot-lsp.git',  -- TODO: add NES functionality
+  'https://github.com/giuxtaposition/blink-cmp-copilot.git'
 })
--- require('copilot').setup({
---   suggestion = { enabled = false },
---   panel = { enabled = false },
---   filetypes = {
---     markdown = true,
---     help = true,
---   },
--- })
+
+require('copilot').setup({
+  suggestion = { enabled = false },
+  panel = { enabled = false },
+  filetypes = {
+    markdown = true,
+    help = true,
+  },
+})
 
 require('blink-cmp').setup({
   appearance = {
     nerd_font_variant = "mono",
   },
   sources = {
-    default = { "lsp", "path", "snippets", "buffer", "emoji", 'conventional_commits'},
+    default = { "lsp", "path", "snippets", "buffer", "emoji", 'conventional_commits', 'copilot'},
     providers = {
       emoji = {
         module = "blink-emoji",
@@ -29,6 +31,12 @@ require('blink-cmp').setup({
       conventional_commits = {
         name = 'Conventional Commits',
         module = 'blink-cmp-conventional-commits',
+      },
+      copilot = {
+        name = "copilot",
+        module = "blink-cmp-copilot",
+        score_offset = 100,
+        async = true,
       },
     },
   },
