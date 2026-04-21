@@ -26,6 +26,7 @@ require('mason-lspconfig').setup({
     'clangd',
     'jdtls',
     'lua_ls',
+    'rust_analyzer',
     'vtsls'
   },
 })
