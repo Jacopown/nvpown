@@ -8,6 +8,8 @@ vim.pack.add({
   'https://github.com/giuxtaposition/blink-cmp-copilot.git'
 })
 
+vim.g.copilot_enabled = false
+
 require('copilot').setup({
   suggestion = { enabled = false },
   panel = { enabled = false },
@@ -16,6 +18,12 @@ require('copilot').setup({
     help = true,
   },
 })
+
+vim.defer_fn(function()
+  if not vim.g.copilot_enabled then
+    vim.cmd("Copilot disable")
+  end
+end, 100)
 
 require('blink-cmp').setup({
   appearance = {
@@ -75,35 +83,13 @@ require('blink-cmp').setup({
 })
 vim.api.nvim_set_hl(0, "BlinkCmpMenu", { link = "Normal" })
 vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { link = "Normal" })
--- 		keys = {
--- 			{
--- 				"<leader>c",
--- 				function()
--- 					vim.g.copilot_enabled = not vim.g.copilot_enabled
--- 					if vim.g.copilot_enabled then
---             vim.cmd("Copilot enable")
--- 						print("AI Copilot: ON ")
--- 					else
---             vim.cmd("Copilot disable")
--- 						print("AI Copilot: OFF ")
--- 					end
--- 				end,
--- 				desc = "Toggle Copilot AI",
--- 			},
--- 		},
--- 	},
--- 	{
--- 		"zbirenbaum/copilot.lua",
--- 		event = "InsertEnter",
--- 		opts = {
--- 			suggestion = { enabled = false },
--- 			panel = { enabled = false },
--- 		},
--- 		config = function(_, opts)
--- 			require("copilot").setup(opts)
--- 			if not vim.g.copilot_enabled then
--- 				vim.cmd("Copilot disable")
--- 			end
--- 		end,
--- 	},
--- }
+vim.keymap.set("n", "<leader>c", function()
+  vim.g.copilot_enabled = not vim.g.copilot_enabled
+  if vim.g.copilot_enabled then
+    vim.cmd("Copilot enable")
+    print("AI Copilot: ON ")
+  else
+    vim.cmd("Copilot disable")
+    print("AI Copilot: OFF ")
+  end
+end, { desc = "Toggle Copilot AI" })
