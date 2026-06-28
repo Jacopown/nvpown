@@ -85,9 +85,9 @@ vim.o.foldlevel = 99          -- Livello iniziale di fold (apre tutto all'avvio)
 vim.o.foldlevelstart = 99     -- Assicura che i file si aprano non ripiegati
 vim.o.foldenable = true       -- Abilita il sistema di folding
 
--- opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
--- opt.foldmethod = "expr"
--- opt.foldtext = ""
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldmethod = "expr"
+vim.o.foldtext = ""
 
 -------------------------------------------------------------------------------
 -- 7. Diagnostica
