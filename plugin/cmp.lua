@@ -4,7 +4,6 @@ vim.pack.add({
   'https://github.com/rafamadriz/friendly-snippets.git',
   'https://github.com/disrupted/blink-cmp-conventional-commits.git',
   'https://github.com/zbirenbaum/copilot.lua.git',
-  'https://github.com/copilotlsp-nvim/copilot-lsp.git',  -- TODO: add NES functionality
   'https://github.com/giuxtaposition/blink-cmp-copilot.git'
 })
 
