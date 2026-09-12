@@ -30,12 +30,14 @@ vim.o.showmode = false        -- Nasconde l'indicatore della modalità (-- INSER
 vim.o.termguicolors = true    -- True color support
 vim.o.winborder = 'rounded'
 vim.o.laststatus = 3          -- Global statusline
+vim.o.autocomplete = false
 
 vim.opt.fillchars = {         -- Personalizza i caratteri di riempimento dell'interfaccia
   foldopen = "",
   foldclose = "",
   fold = " ",
   foldsep = " ",
+  foldinner = " ",
   diff = "╱",
   eob = " ",                  -- Nasconde i simboli ~ alla fine del file
 }
