@@ -1,5 +1,8 @@
 local map = vim.keymap.set
 
+vim.cmd.packadd({"nvim.undotree"})
+vim.keymap.set('n', '<leader>u', function() require("undotree").open() end, { desc = 'Undo Tree / History' })
+
 map("i", "kj", "<ESC>", { desc = "Faster <Esc>", noremap = true })
 map("n", "<ESC>", "<cmd>nohlsearch<CR>", { desc = "Deactivate hlsearch", noremap = true })
 
