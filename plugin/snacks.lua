@@ -1,6 +1,8 @@
 vim.pack.add({'https://github.com/folke/snacks.nvim.git'})
 require('snacks').setup({
-	dashboard = {},
+	dashboard = {
+    enabled = false,
+  },
 	indent = {},
 	zen = {},
 	picker = {
