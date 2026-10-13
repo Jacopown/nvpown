@@ -56,6 +56,10 @@ map({"n", "x", "o"}, "[f", function() require "nvim-treesitter-textobjects.move"
 map({"n", "x", "o"}, "]c", function() require "nvim-treesitter-textobjects.move".goto_next_start("@class.outer", "textobjects") end, { desc = "Next class" })
 map({"n", "x", "o"}, "[c", function() require "nvim-treesitter-textobjects.move".goto_previous_start("@class.outer", "textobjects") end, { desc = "Previous class" })
 
+-- Scorciatoie per git mergetool a 3 vie (nvimdiff3)
+map("n", "<leader>gh", function() vim.cmd("diffget LOCAL") vim.cmd("diffupdate") end, { desc = "Merge: prendi da sinistra (LOCAL)" })
+map("n", "<leader>gl", function() vim.cmd("diffget REMOTE") vim.cmd("diffupdate") end, { desc = "Merge: prendi da sinistra (REMOTE)" })
+
 -- -- Resize window using <ctrl> arrow keys
 -- map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
 -- map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
