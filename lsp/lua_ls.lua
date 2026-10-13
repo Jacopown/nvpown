@@ -10,6 +10,7 @@ return {
       workspace = {
         library = {
           vim.env.VIMRUNTIME,
+          '/usr/share/hypr/stubs/',
         },
       },
     },
