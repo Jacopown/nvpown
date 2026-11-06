@@ -24,3 +24,11 @@ vim.pack.add({
 })
 
 require('nvim-treesitter').install { 'html', 'latex', 'lua', 'markdown', 'rust', 'python', 'vim', 'yaml' }
+
+vim.api.nvim_create_autocmd('FileType', {
+  desc = 'Enable Treesitter highlighting',
+  group = vim.api.nvim_create_augroup('treesitter-highlight', { clear = true }),
+  callback = function(ev)
+    pcall(vim.treesitter.start, ev.buf)
+  end,
+})
